@@ -1,0 +1,4 @@
+﻿<ViewExtensionDefinition>
+  <AssemblyPath>..\designtechViewExtension.dll</AssemblyPath>
+  <TypeName>designtechViewExtension.designtechViewExtension</TypeName>
+</ViewExtensionDefinition>
