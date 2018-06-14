@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:designtechViewExtension"
              mc:Ignorable="d" d:DesignWidth="300"
             ResizeMode="NoResize"
-            Width="500" MinHeight="200" Title="designtech Graph Diagnostics" FontSize="40" FontFamily="Showcard Gothic" HorizontalAlignment="Center" FontWeight="Bold" SizeToContent="Height" BorderThickness="0" Background="#FFFBFBFB">
+            Width="500" MinHeight="200" Title="designtech Graph Diagnostics" SizeToContent="Height" BorderThickness="0" Background="#FFFBFBFB" Icon="C:\Users\markt\Documents\GitHub\designtechViewExtension\resources\designtech-icon-32px.ico">
     <StackPanel Name="MainGrid" 
           HorizontalAlignment="Stretch"
           VerticalAlignment="Stretch">
