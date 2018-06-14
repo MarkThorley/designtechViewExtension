@@ -160,8 +160,8 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy "$(ProjectDir)bin\Release\*.xml" "C:\Users\markt\Documents\GitHub\Dynamo\bin\AnyCPU\Release\viewExtensions"
-copy "$(ProjectDir)bin\Release\*.dll" "C:\Users\markt\Documents\GitHub\Dynamo\bin\AnyCPU\Release\"</PostBuildEvent>
+    <PostBuildEvent>copy "$(ProjectDir)bin\Release\*.xml" "C:\Users\markt\Documents\GitHub\Dynamo\bin\AnyCPU\Debug\viewExtensions"
+copy "$(ProjectDir)bin\Release\*.dll" "C:\Users\markt\Documents\GitHub\Dynamo\bin\AnyCPU\Debug\"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

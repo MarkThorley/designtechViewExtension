@@ -19,7 +19,7 @@ namespace designtechViewExtension
         private string graphLastSaved;
         private string activeNodeCount;
         private string activeWireCount;
-        public string errorNodeTypes;
+        List<string> errorNodeTypes;
         private ReadyParams readyParams;
 
         #endregion
@@ -86,7 +86,7 @@ namespace designtechViewExtension
         }
 
         // Displays error nodes in the workspace
-        public string ErrorNodeTypes
+        public List<string> ErrorNodeTypes
         {
             get
             {
@@ -183,16 +183,16 @@ namespace designtechViewExtension
         }
 
         // Helper function that builds string of error nodes
-        public string getErrorNodeTypes()
+        public List<string> getErrorNodeTypes()
         {
-            string output = "";
+            List<string> output = new List<string>();
             foreach (NodeModel node in readyParams.CurrentWorkspaceModel.Nodes)
             {
                 if (node.State.ToString() != "Active" && node.Name != "Watch")
                 {
                     string nickName = node.Name;
                     string guid = node.GUID.ToString();
-                    output += guid + " - " + nickName + "\n";
+                    output.Add(guid + " - " + nickName);
                 }
 
             }
