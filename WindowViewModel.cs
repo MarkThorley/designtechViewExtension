@@ -124,8 +124,8 @@ namespace designtechViewExtension
                 return "File has not been saved yet";
             }
             int ind = f.LastIndexOf("\\");
-            string fN = f.Remove(0, (ind + 1));
-            string fP = f.Remove((ind + 1),fN.Length);
+            string name = f.Remove(0, (ind + 1));
+            string fP = f.Remove((ind + 1),name.Length);
             return fP;
         }
 
@@ -188,11 +188,12 @@ namespace designtechViewExtension
             List<string> output = new List<string>();
             foreach (NodeModel node in readyParams.CurrentWorkspaceModel.Nodes)
             {
-                if (node.State.ToString() != "Active" && node.Name != "Watch")
+                if (node.State.ToString() == "Warning" && node.Name != "Watch")
                 {
-                    string nickName = node.Name;
+                    string cName = node.CreationName;
+                    string name = node.Name;
                     string guid = node.GUID.ToString();
-                    output.Add(guid + " - " + nickName);
+                    output.Add(guid + " - " + cName + " - " + name);
                 }
 
             }
