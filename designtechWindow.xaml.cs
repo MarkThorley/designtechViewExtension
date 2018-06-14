@@ -22,7 +22,14 @@ namespace designtechViewExtension
     {
         public designtechWindow()
         {
-            InitializeComponent();
+            InitializeComponent();            
+            listBox.Items.Add("Test");
+            listBox.Items.Add("Mark");
+        }
+
+        private void listBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+           // listBox.SelectedItem.
         }
     }
 }

@@ -24,5 +24,6 @@
         <TextBlock HorizontalAlignment="Stretch" Text="{Binding ActiveWireCount}" FontFamily="Arial" Padding="10" FontWeight="Medium" FontSize="12" Background="#f2f3f4" Foreground="#13344e"/>
         <TextBlock HorizontalAlignment="Stretch" Text="Error Nodes" FontFamily="Arial" Padding="10" FontWeight="Bold" FontSize="14" Background="#8d9ca9" Foreground="#f2f3f4"/>
         <TextBlock HorizontalAlignment="Stretch" Text="{Binding ErrorNodeTypes}" FontFamily="Arial" Padding="10" FontWeight="Medium" FontSize="12" Background="#f2f3f4" Foreground="#E59100"/>
+        <ListBox x:Name="listBox" Height="100" SelectionChanged="listBox_SelectionChanged" Background="#f2f3f4" Foreground="#E59100"/>
     </StackPanel>
 </Window>

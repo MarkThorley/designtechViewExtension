@@ -19,7 +19,7 @@ namespace designtechViewExtension
         private string graphLastSaved;
         private string activeNodeCount;
         private string activeWireCount;
-        private string errorNodeTypes;
+        public string errorNodeTypes;
         private ReadyParams readyParams;
 
         #endregion
@@ -191,7 +191,8 @@ namespace designtechViewExtension
                 if (node.State.ToString() != "Active" && node.Name != "Watch")
                 {
                     string nickName = node.Name;
-                    output += nickName + "\n";
+                    string guid = node.GUID.ToString();
+                    output += guid + " - " + nickName + "\n";
                 }
 
             }
