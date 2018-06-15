@@ -188,14 +188,21 @@ namespace designtechViewExtension
             List<string> output = new List<string>();
             foreach (NodeModel node in readyParams.CurrentWorkspaceModel.Nodes)
             {
+                /*
+                string name = node.Name;
+                string guid = node.GUID.ToString();
+                string state = node.IsInErrorState.ToString();
+                string state2 = node.State.ToString();
+                output.Add(guid + " - " + name + " - " + state + " - " + state2);
+                */
+
                 if (node.State.ToString() == "Warning" && node.Name != "Watch")
                 {
-                    string cName = node.CreationName;
                     string name = node.Name;
                     string guid = node.GUID.ToString();
-                    output.Add(guid + " - " + cName + " - " + name);
+                    output.Add(guid + " - " + name);
                 }
-
+                
             }
 
             return output;

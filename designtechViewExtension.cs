@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 using Dynamo.Wpf.Extensions;
 using System.Windows;
 using System.Windows.Controls;
+using Dynamo.ViewModels;
 
 namespace designtechViewExtension
 {
     public class designtechViewExtension : IViewExtension
     {
-        private MenuItem sampleMenuItem;
+        private MenuItem designtechMenuItem;
+        private MenuItem designtechGraphDiagnosticsMenuItem;
 
         public void Dispose()
         {
@@ -23,12 +25,11 @@ namespace designtechViewExtension
 
         public void Loaded(ViewLoadedParams p)
         {
-            // Save a reference to your loaded parameters.
-            // You'll need these later when you want to use
-            // the supplied workspaces
+            designtechMenuItem = new MenuItem { Header = "designtech" };
+            var VM = p.DynamoWindow.DataContext as DynamoViewModel;
 
-            sampleMenuItem = new MenuItem { Header = "designtech Graph Diagnostics" };
-            sampleMenuItem.Click += (sender, args) =>
+            designtechGraphDiagnosticsMenuItem = new MenuItem { Header = "Graph Diagnostics" };
+            designtechGraphDiagnosticsMenuItem.Click += (sender, args) =>
             {
                 var viewModel = new WindowViewModel(p);
                 var window = new designtechWindow
@@ -39,14 +40,13 @@ namespace designtechViewExtension
                     // Set the owner of the window to the Dynamo window.
                     Owner = p.DynamoWindow
                 };
-
                 window.Left = window.Owner.Left + 400;
                 window.Top = window.Owner.Top + 200;
-
-                // Show a modeless window.
                 window.Show();
             };
-            p.AddMenuItem(MenuBarType.View, sampleMenuItem);
+            designtechMenuItem.Items.Add(designtechGraphDiagnosticsMenuItem);
+
+            p.dynamoMenu.Items.Add(designtechMenuItem);
         }
 
         public void Shutdown()
