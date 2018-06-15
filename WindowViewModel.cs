@@ -11,6 +11,11 @@ namespace designtechViewExtension
 {
     class WindowViewModel : NotificationObject, IDisposable
     {
+        public class nodeData
+        {
+            public string name { get; set; }
+            public Guid guid { get; set; }
+        }
 
         #region Fields
         private string graphFileName;
@@ -94,6 +99,40 @@ namespace designtechViewExtension
                 return errorNodeTypes;
             }
         }
+
+
+        /*
+       // Displays error nodes in the workspace
+       public List<string> ErrorNodeTypeNames
+       {
+           get
+           {
+               List<string> nList = new List<string>();
+               errorNodeTypes = getErrorNodeTypes();
+               foreach (var item in errorNodeTypes)
+               {
+                   nList.Add(item.name);
+               }
+               return nList;
+           }
+       }
+
+
+       // Displays error nodes in the workspace
+       public List<Guid> ErrorNodeTypeGuids
+       {
+           get
+           {
+               List<Guid> gList = new List<Guid>();
+               errorNodeTypes = getErrorNodeTypes();
+               foreach (var item in errorNodeTypes)
+               {
+                   gList.Add(item.guid);
+               }
+               return gList;
+           }
+       }
+       */
 
         #endregion
 
@@ -188,26 +227,37 @@ namespace designtechViewExtension
             List<string> output = new List<string>();
             foreach (NodeModel node in readyParams.CurrentWorkspaceModel.Nodes)
             {
-                /*
-                string name = node.Name;
-                string guid = node.GUID.ToString();
-                string state = node.IsInErrorState.ToString();
-                string state2 = node.State.ToString();
-                output.Add(guid + " - " + name + " - " + state + " - " + state2);
-                */
-
                 if (node.State.ToString() == "Warning" && node.Name != "Watch")
                 {
-                    string name = node.Name;
-                    string guid = node.GUID.ToString();
-                    output.Add(guid + " - " + name);
+                    output.Add(node.Name);
                 }
-                
+            }
+            return output;
+
+        }
+
+
+        /*
+        // Helper function that builds string of error nodes
+        public List<nodeData> getErrorNodeTypes()
+        {
+            List<nodeData> output = new List<nodeData>();
+            foreach (NodeModel node in readyParams.CurrentWorkspaceModel.Nodes)
+            {
+                if (node.State.ToString() == "Warning" && node.Name != "Watch")
+                {
+                    output.Add(new nodeData()
+                    {
+                        name = node.Name,
+                        guid = node.GUID
+                    });
+                }
             }
 
             return output;
 
         }
+        */
 
         #endregion
 
@@ -245,7 +295,7 @@ namespace designtechViewExtension
 
         private void CurrentWorkspaceModel_NodesChanged(NodeModel obj)
         {
-            RaisePropertyChanged("ErrorNodeTypes");
+            RaisePropertyChanged("ErrorNodeTypeNames");
         }
 
 
