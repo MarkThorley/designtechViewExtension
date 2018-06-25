@@ -1,0 +1,27 @@
+﻿<Window x:Class="designtechViewExtension.AboutWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:designtechViewExtension"
+             mc:Ignorable="d" d:DesignWidth="300"
+            ResizeMode="NoResize"
+            Width="500" MinHeight="200" Title="About" SizeToContent="Height" BorderThickness="0" Background="#FFFBFBFB" Icon="C:\Users\markt\Documents\GitHub\designtechViewExtension\resources\designtech-icon-32px.ico">
+    <StackPanel Name="MainGrid" 
+          HorizontalAlignment="Stretch"
+          VerticalAlignment="Stretch">
+        <TextBox x:Name="textBox" HorizontalAlignment="Center" VerticalAlignment="Center" Height="69" TextWrapping="Wrap" Text="&#xD;&#xA;designtech Dynamo View Extension" Margin="10,0,9.667,0" Width="475" TextAlignment="Center" FontWeight="Bold" FontFamily="Lintel 8" FontSize="20" BorderBrush="White" BorderThickness="0"/>
+        <TextBox x:Name="textBox_Copy" HorizontalAlignment="Center" VerticalAlignment="Center" Height="123" TextWrapping="Wrap" Text="&#xD;&#xA;© 2018 designtech.io&#xA;&#xA;www.designtech.io&#xA;&#xA;GitHub: https://github.com/MarkThorley/designtechViewExtension" Margin="10,0,9.667,0" Width="475" TextAlignment="Center" RenderTransformOrigin="0.5,0.5" BorderThickness="0" BorderBrush="White">
+            <TextBox.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleX="1.107"/>
+                    <RotateTransform/>
+                    <TranslateTransform X="1.314"/>
+                </TransformGroup>
+            </TextBox.RenderTransform>
+        </TextBox>
+        <Image x:Name="image"   Height="103" Source="C:\Users\markt\Documents\GitHub\designtechViewExtension\resources\designtech-logo.png" Margin="42,0,42,10" />
+    </StackPanel>
+</Window>
+

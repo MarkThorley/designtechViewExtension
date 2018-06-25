@@ -22,10 +22,10 @@ namespace designtechViewExtension
     /// <summary>
     /// Interaction logic for designtechWindow.xaml
     /// </summary>
-    public partial class designtechWindow : Window
+    public partial class GraphDiagnosticsWindow : Window
     {
 
-        public designtechWindow()
+        public GraphDiagnosticsWindow()
         {
             InitializeComponent();
         }

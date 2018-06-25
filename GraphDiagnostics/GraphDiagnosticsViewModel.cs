@@ -9,7 +9,7 @@ using Dynamo.Graph.Nodes;
 
 namespace designtechViewExtension
 {
-    class WindowViewModel : NotificationObject, IDisposable
+    class GraphDiagnosticsViewModel : NotificationObject, IDisposable
     {
         public class nodeData
         {
@@ -99,40 +99,6 @@ namespace designtechViewExtension
                 return errorNodeTypes;
             }
         }
-
-
-        /*
-       // Displays error nodes in the workspace
-       public List<string> ErrorNodeTypeNames
-       {
-           get
-           {
-               List<string> nList = new List<string>();
-               errorNodeTypes = getErrorNodeTypes();
-               foreach (var item in errorNodeTypes)
-               {
-                   nList.Add(item.name);
-               }
-               return nList;
-           }
-       }
-
-
-       // Displays error nodes in the workspace
-       public List<Guid> ErrorNodeTypeGuids
-       {
-           get
-           {
-               List<Guid> gList = new List<Guid>();
-               errorNodeTypes = getErrorNodeTypes();
-               foreach (var item in errorNodeTypes)
-               {
-                   gList.Add(item.guid);
-               }
-               return gList;
-           }
-       }
-       */
 
         #endregion
 
@@ -262,7 +228,7 @@ namespace designtechViewExtension
         #endregion
 
         #region ReadyParams
-        public WindowViewModel(ReadyParams p)
+        public GraphDiagnosticsViewModel(ReadyParams p)
         {
             readyParams = p;
             p.CurrentWorkspaceChanged += CurrentWorkspaceModel_GraphSaved;
