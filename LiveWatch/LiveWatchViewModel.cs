@@ -50,7 +50,7 @@ namespace designtechViewExtension
                     output.Add(node.OutputData.IntitialValue);
                     output.Add(node.OutputData.Name);
                     output.Add(node.OutputData.Type.ToString());
-                    output.Add(node.TryGetOutput(0));
+                    //output.Add(node.TryGetOutput(0));
                 }
             }
             return output;
