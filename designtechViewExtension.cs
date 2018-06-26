@@ -15,6 +15,7 @@ namespace designtechViewExtension
         private MenuItem designtechMenuItem;
         private MenuItem designtechAboutMenuItem;
         private MenuItem designtechGraphDiagnosticsMenuItem;
+        private MenuItem designtechLiveWatchMenuItem;
 
         public void Dispose()
         {
@@ -36,10 +37,6 @@ namespace designtechViewExtension
                 //var viewModel = new GraphDiagnosticsViewModel(p);
                 var window = new AboutWindow
                 {
-                    // Set the data context for the main grid in the window.
-                    //MainGrid = { DataContext = viewModel },
-
-                    // Set the owner of the window to the Dynamo window.
                     Owner = p.DynamoWindow
                 };
                 window.Left = window.Owner.Left + 400;
@@ -67,6 +64,26 @@ namespace designtechViewExtension
                 window.Show();
             };
             designtechMenuItem.Items.Add(designtechGraphDiagnosticsMenuItem);
+            #endregion
+
+            #region Live Watch
+            designtechLiveWatchMenuItem = new MenuItem { Header = "Live Watch" };
+            designtechLiveWatchMenuItem.Click += (sender, args) =>
+            {
+                var viewModel = new LiveWatchViewModel(p);
+                var window = new LiveWatchWindow
+                {
+                    // Set the data context for the main grid in the window.
+                    MainGrid = { DataContext = viewModel },
+
+                    // Set the owner of the window to the Dynamo window.
+                    Owner = p.DynamoWindow
+                };
+                window.Left = window.Owner.Left + 400;
+                window.Top = window.Owner.Top + 200;
+                window.Show();
+            };
+            designtechMenuItem.Items.Add(designtechLiveWatchMenuItem);
             #endregion
 
             //Add items to menu list
