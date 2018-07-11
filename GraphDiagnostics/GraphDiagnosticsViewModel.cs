@@ -6,16 +6,26 @@ using System.Text;
 using System.Threading.Tasks;
 using Dynamo.Extensions;
 using Dynamo.Graph.Nodes;
+using Dynamo.ViewModels;
+using System.Windows;
+using Dynamo.Graph;
+using Dynamo.Wpf.Extensions;
 
 namespace designtechViewExtension
 {
-    class GraphDiagnosticsViewModel : NotificationObject, IDisposable
+    class GraphDiagnosticsViewModel : NotificationObject
     {
         public class nodeData
         {
             public string name { get; set; }
-            public Guid guid { get; set; }
+            public string guid { get; set; }
+            public ModelBase theNode { get; set; }
+            public ViewLoadedParams theWSModel { get; set; }
         }
+
+        private ViewLoadedParams readyParams;
+        private DynamoViewModel viewModel;
+        private Window dynWindow;
 
         #region Fields
         private string graphFileName;
@@ -24,8 +34,9 @@ namespace designtechViewExtension
         private string graphLastSaved;
         private string activeNodeCount;
         private string activeWireCount;
-        List<string> errorNodeTypes;
-        private ReadyParams readyParams;
+        List<nodeData> errorNodeTypes;
+        List<string> errorNodeNames;
+        //private ReadyParams readyParams;
 
         #endregion
 
@@ -91,12 +102,23 @@ namespace designtechViewExtension
         }
 
         // Displays error nodes in the workspace
-        public List<string> ErrorNodeTypes
+        public List<nodeData> ErrorNodeTypes
         {
             get
             {
                 errorNodeTypes = getErrorNodeTypes();
                 return errorNodeTypes;
+            }
+        }
+
+        // Displays error nodes in the workspace
+        public List<string> ErrorNodeNames
+        {
+            get
+            {
+                errorNodeNames = getErrorNodeNames();
+                return errorNodeNames;
+
             }
         }
 
@@ -186,24 +208,7 @@ namespace designtechViewExtension
             string output = count.ToString();
             return output;
         }
-
-        // Helper function that builds string of error nodes
-        public List<string> getErrorNodeTypes()
-        {
-            List<string> output = new List<string>();
-            foreach (NodeModel node in readyParams.CurrentWorkspaceModel.Nodes)
-            {
-                if (node.State.ToString() == "Warning" && node.Name != "Watch")
-                {
-                    output.Add(node.Name);
-                }
-            }
-            return output;
-
-        }
-
-
-        /*
+    
         // Helper function that builds string of error nodes
         public List<nodeData> getErrorNodeTypes()
         {
@@ -214,23 +219,34 @@ namespace designtechViewExtension
                 {
                     output.Add(new nodeData()
                     {
-                        name = node.Name,
-                        guid = node.GUID
+                        name = node.NickName,
+                        guid = node.GUID.ToString(),
+                        theNode = node,
+                        theWSModel = readyParams
+                       
                     });
                 }
             }
-
             return output;
-
         }
-        */
+
+        public List<string> getErrorNodeNames()
+        {
+            List<string> output = new List<string>();
+            foreach (nodeData item in ErrorNodeTypes)
+            {
+                output.Add(item.name);
+            }
+            return output;
+        }
+
 
         #endregion
 
         #region ReadyParams
         public GraphDiagnosticsViewModel(ReadyParams p)
         {
-            readyParams = p;
+            readyParams = p as ViewLoadedParams;
             p.CurrentWorkspaceChanged += CurrentWorkspaceModel_GraphSaved;
             p.CurrentWorkspaceModel.NodeAdded += CurrentWorkspaceModel_NodeCount;
             p.CurrentWorkspaceModel.NodeRemoved += CurrentWorkspaceModel_NodeCount;
@@ -238,6 +254,7 @@ namespace designtechViewExtension
             p.CurrentWorkspaceModel.ConnectorDeleted += CurrentWorkspaceModel_WireCount;
             p.CurrentWorkspaceModel.NodeAdded += CurrentWorkspaceModel_NodesChanged;
             p.CurrentWorkspaceModel.NodeRemoved += CurrentWorkspaceModel_NodesChanged;
+            
         }
 
         #endregion

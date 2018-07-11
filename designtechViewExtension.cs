@@ -66,6 +66,7 @@ namespace designtechViewExtension
             designtechMenuItem.Items.Add(designtechGraphDiagnosticsMenuItem);
             #endregion
 
+            /*
             #region Live Watch
             designtechLiveWatchMenuItem = new MenuItem { Header = "Live Watch" };
             designtechLiveWatchMenuItem.Click += (sender, args) =>
@@ -85,6 +86,7 @@ namespace designtechViewExtension
             };
             designtechMenuItem.Items.Add(designtechLiveWatchMenuItem);
             #endregion
+            */
 
             //Add items to menu list
             p.dynamoMenu.Items.Add(designtechMenuItem);
