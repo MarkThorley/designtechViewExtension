@@ -121,7 +121,6 @@ namespace designtechViewExtension
 
             }
         }
-
         #endregion
 
         #region Functions
@@ -239,7 +238,6 @@ namespace designtechViewExtension
             }
             return output;
         }
-
 
         #endregion
 

@@ -10,23 +10,33 @@
     <StackPanel Name="MainGrid" 
           HorizontalAlignment="Stretch"
           VerticalAlignment="Stretch">
-        <TextBlock HorizontalAlignment="Stretch" FontFamily="Arial" Padding="10" FontWeight="Bold" FontSize="14" Background="#f2f3f4" Foreground="#f2f3f4" Margin="0,0,-0.333,0" Height="142"><InlineUIContainer>
-                        <Image x:Name="image"   Height="103" Source="C:\Users\markt\Documents\GitHub\designtechViewExtension\resources\designtech-logo.png" Margin="42,10,42,10"/>
+        <TextBlock HorizontalAlignment="Stretch" FontFamily="Arial" Padding="10" FontWeight="Bold" FontSize="14" Background="#f2f3f4" Foreground="#f2f3f4" Margin="0,0,-0.333,0" Height="142"><Hyperlink NavigateUri="http://www.test.com" TextDecorations="None"><InlineUIContainer>
+                        <Image x:Name="image"     Height="103" Source="C:\Users\markt\Documents\GitHub\designtechViewExtension\resources\designtech-logo.png" Margin="42,10,42,10"/>
 
-            </InlineUIContainer></TextBlock>
+            </InlineUIContainer></Hyperlink></TextBlock>
         <TextBlock HorizontalAlignment="Stretch" Text="File Name" FontFamily="Arial" Padding="10" FontWeight="Bold" FontSize="14" Background="#8d9ca9" Foreground="#f2f3f4" Margin="0,0,-0.333,0"/>
         <TextBlock HorizontalAlignment="Stretch" Text="{Binding GraphFileName}" TextWrapping="WrapWithOverflow" FontFamily="Arial" Padding="10" FontWeight="Medium" FontSize="12" Background="#f2f3f4" Foreground="#13344e"/>
         <TextBlock HorizontalAlignment="Stretch" Text="File Path" FontFamily="Arial" Padding="10" FontWeight="Bold" FontSize="14" Background="#8d9ca9" Foreground="#f2f3f4"/>
         <TextBlock HorizontalAlignment="Stretch" Text="{Binding GraphFilePath}" TextWrapping="WrapWithOverflow" FontFamily="Arial" Padding="10" FontWeight="Medium" FontSize="12" Background="#f2f3f4" Foreground="#13344e"/>
-        <TextBlock HorizontalAlignment="Stretch" Text="Description" FontFamily="Arial" Padding="10" FontWeight="Bold" FontSize="14" Background="#8d9ca9" Foreground="#f2f3f4"/>
-        <TextBlock HorizontalAlignment="Stretch" Text="{Binding GraphDescription}" TextWrapping="WrapWithOverflow" FontFamily="Arial" Padding="10" FontWeight="Medium" FontSize="12" Background="#f2f3f4" Foreground="#13344e"/>
         <TextBlock HorizontalAlignment="Stretch" Text="File Last Saved" FontFamily="Arial" Padding="10" FontWeight="Bold" FontSize="14" Background="#8d9ca9" Foreground="#f2f3f4"/>
         <TextBlock HorizontalAlignment="Stretch" Text="{Binding GraphLastSaved}" FontFamily="Arial" Padding="10" FontWeight="Medium" FontSize="12" Background="#f2f3f4" Foreground="#13344e"/>
-        <TextBlock HorizontalAlignment="Stretch" Text="Total Number of Nodes" FontFamily="Arial" Padding="10" FontWeight="Bold" FontSize="14" Background="#8d9ca9" Foreground="#f2f3f4"/>
-        <TextBlock HorizontalAlignment="Stretch" Text="{Binding ActiveNodeCount}" FontFamily="Arial" Padding="10" FontWeight="Medium" FontSize="12" Background="#f2f3f4" Foreground="#13344e"/>
-        <TextBlock HorizontalAlignment="Stretch" Text="Total Number of Wires" FontFamily="Arial" Padding="10" FontWeight="Bold" FontSize="14" Background="#8d9ca9" Foreground="#f2f3f4"/>
-        <TextBlock HorizontalAlignment="Stretch" Text="{Binding ActiveWireCount}" FontFamily="Arial" Padding="10" FontWeight="Medium" FontSize="12" Background="#f2f3f4" Foreground="#13344e"/>
-        <TextBlock HorizontalAlignment="Stretch" Text="Error Nodes" FontFamily="Arial" Padding="10" FontWeight="Bold" FontSize="14" Background="#8d9ca9" Foreground="#f2f3f4"/>
-        <ListBox x:Name="listBox" ItemsSource="{Binding ErrorNodeTypes}" DisplayMemberPath="name" FontFamily="Arial" Padding="10" FontWeight="Bold" FontSize="12" Height="200" SelectionChanged="listBox_SelectionChanged" Background="#f2f3f4" Foreground="#E59100" />
+        <WrapPanel Margin="0">
+            <TextBlock Margin="0,0,0,0" HorizontalAlignment="Stretch" Padding="10" TextAlignment="Center" Text="Total Number of Nodes" FontFamily="Arial" FontWeight="Bold" FontSize="14" Background="#8d9ca9" Foreground="#f2f3f4" Width="242.5"/>
+            <TextBlock Margin="0,0,0,0" HorizontalAlignment="Stretch" Padding="10" TextAlignment="Center" Text="Total Number of Wires" FontFamily="Arial" FontWeight="Bold" FontSize="14" Background="#8d9ca9" Foreground="#f2f3f4" Width="242.5"/>
+        </WrapPanel>
+        <WrapPanel Margin="0">
+            <TextBlock Margin="0,0,0,0" Text="{Binding ActiveNodeCount}" Padding="10" TextAlignment="Center" FontFamily="Arial" FontWeight="Bold" FontSize="20"  Background="#f2f3f4" Foreground="#13344e" Width="242.5" Height="36"/>
+            <TextBlock Margin="0,0,0,0" Text="{Binding ActiveWireCount}" Padding="10" TextAlignment="Center" FontFamily="Arial" FontWeight="Bold" FontSize="20" Background="#f2f3f4" Foreground="#13344e" Width="242.5" Height="36"/>
+        </WrapPanel>
+        <WrapPanel Margin="0">
+            <TextBlock Margin="0,0,0,0" HorizontalAlignment="Stretch" Padding="10" TextAlignment="Center" Text="Error Nodes" FontFamily="Arial" FontWeight="Bold" FontSize="14" Background="#8d9ca9" Foreground="#f2f3f4" Width="242.5"/>
+            <TextBlock Margin="0,0,0,0" HorizontalAlignment="Stretch" Padding="10" TextAlignment="Center" Text="Groups" FontFamily="Arial" FontWeight="Bold" FontSize="14" Background="#8d9ca9" Foreground="#f2f3f4" Width="242.5"/>
+        </WrapPanel>
+        <WrapPanel Margin="0">
+            <ListBox x:Name="ErrorListBox" ItemsSource="{Binding ErrorNodeTypes}" DisplayMemberPath="name" FontFamily="Arial" Padding="10" FontWeight="Bold" FontSize="12" Height="200" SelectionChanged="listBox_SelectionChanged" Background="#f2f3f4" Foreground="#E59100" Width="242.5" BorderThickness="0" />
+            <ListBox x:Name="GroupListBox" ItemsSource="{Binding ErrorNodeTypes}" DisplayMemberPath="guid" FontFamily="Arial" Padding="10" FontWeight="Bold" FontSize="12" Height="200" SelectionChanged="listBox_SelectionChanged" Background="#f2f3f4" Foreground="#13344e" Width="242.5" BorderThickness="0"/>
+        </WrapPanel>
+
+
     </StackPanel>
 </Window>
