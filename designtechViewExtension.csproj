@@ -134,11 +134,11 @@
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="designtechViewExtension.cs" />
-    <Compile Include="GraphDiagnostics\GraphDiagnosticsWindow.xaml.cs">
-      <DependentUpon>GraphDiagnosticsWindow.xaml</DependentUpon>
+    <Compile Include="GraphInformation\GraphInformationWindow.xaml.cs">
+      <DependentUpon>GraphInformationWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GraphInformation\GraphInformationViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="GraphDiagnostics\GraphDiagnosticsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -148,7 +148,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GraphDiagnostics\GraphDiagnosticsWindow.xaml">
+    <Page Include="GraphInformation\GraphInformationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -158,8 +158,8 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="resources\designtech-icon-32px.ico" />
-    <Content Include="resources\designtech-logo.png" />
+    <Resource Include="resources\designtech-icon-32px.ico" />
+    <Resource Include="resources\designtech-logo.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

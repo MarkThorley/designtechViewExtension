@@ -10,11 +10,17 @@ using Dynamo.ViewModels;
 using System.Windows;
 using Dynamo.Graph;
 using Dynamo.Wpf.Extensions;
+using Dynamo.Graph.Annotations;
+using Dynamo.Graph.Workspaces;
 
 namespace designtechViewExtension
 {
-    class GraphDiagnosticsViewModel : NotificationObject
+    class GraphInformationViewModel : NotificationObject
     {
+        private ViewLoadedParams readyParams;
+        private DynamoViewModel viewModel;
+        private Window dynWindow;
+
         public class nodeData
         {
             public string name { get; set; }
@@ -23,9 +29,13 @@ namespace designtechViewExtension
             public ViewLoadedParams theWSModel { get; set; }
         }
 
-        private ViewLoadedParams readyParams;
-        private DynamoViewModel viewModel;
-        private Window dynWindow;
+        public class groupData
+        {
+            public string name { get; set; }
+            public string guid { get; set; }
+            public ModelBase theGroup { get; set; }
+            public ViewLoadedParams theWSModel { get; set; }
+        }
 
         #region Fields
         private string graphFileName;
@@ -35,9 +45,7 @@ namespace designtechViewExtension
         private string activeNodeCount;
         private string activeWireCount;
         List<nodeData> errorNodeTypes;
-        List<string> errorNodeNames;
-        //private ReadyParams readyParams;
-
+        List<groupData> groupTypes;
         #endregion
 
         #region Property
@@ -112,15 +120,15 @@ namespace designtechViewExtension
         }
 
         // Displays error nodes in the workspace
-        public List<string> ErrorNodeNames
+        public List<groupData> GroupTypes
         {
             get
             {
-                errorNodeNames = getErrorNodeNames();
-                return errorNodeNames;
-
+                groupTypes = getGroupTypes();
+                return groupTypes;
             }
         }
+
         #endregion
 
         #region Functions
@@ -229,20 +237,45 @@ namespace designtechViewExtension
             return output;
         }
 
-        public List<string> getErrorNodeNames()
+        // Helper function that builds string of error nodes
+        public List<groupData> getGroupTypes()
         {
-            List<string> output = new List<string>();
-            foreach (nodeData item in ErrorNodeTypes)
+            List<groupData> output = new List<groupData>();
+            List<groupData> groups = new List<groupData>();
+
+            Dynamo.Graph.Workspaces.WorkspaceModel ws = readyParams.CurrentWorkspaceModel as WorkspaceModel;
+
+            foreach (AnnotationModel group in ws.Annotations)
             {
-                output.Add(item.name);
+                if (group.AnnotationText == "")
+                {
+                    groups.Add(new groupData()
+                    {
+                        name = "*Group has no Title*",
+                        guid = group.GUID.ToString(),
+                        theGroup = group,
+                        theWSModel = readyParams
+                    });
+                }
+                else
+                {
+                    groups.Add(new groupData()
+                    {
+                        name = group.AnnotationText,
+                        guid = group.GUID.ToString(),
+                        theGroup = group,
+                        theWSModel = readyParams
+                    });
+                }
             }
+            foreach (groupData group in groups.OrderByDescending(x => x.name).ThenBy(x => x.name)) { output.Add(group); }
             return output;
         }
 
         #endregion
 
         #region ReadyParams
-        public GraphDiagnosticsViewModel(ReadyParams p)
+        public GraphInformationViewModel(ReadyParams p)
         {
             readyParams = p as ViewLoadedParams;
             p.CurrentWorkspaceChanged += CurrentWorkspaceModel_GraphSaved;
@@ -252,7 +285,9 @@ namespace designtechViewExtension
             p.CurrentWorkspaceModel.ConnectorDeleted += CurrentWorkspaceModel_WireCount;
             p.CurrentWorkspaceModel.NodeAdded += CurrentWorkspaceModel_NodesChanged;
             p.CurrentWorkspaceModel.NodeRemoved += CurrentWorkspaceModel_NodesChanged;
-            
+            p.CurrentWorkspaceChanged += CurrentWorkspaceModel_WorkspaceChanged;
+
+
         }
 
         #endregion
@@ -276,7 +311,12 @@ namespace designtechViewExtension
 
         private void CurrentWorkspaceModel_NodesChanged(NodeModel obj)
         {
-            RaisePropertyChanged("ErrorNodeTypeNames");
+            RaisePropertyChanged("ErrorNodeTypes");
+        }
+
+        private void CurrentWorkspaceModel_WorkspaceChanged(Dynamo.Graph.Workspaces.IWorkspaceModel obj)
+        {
+            RaisePropertyChanged("ErrorNodeTypes","GroupTypes");
         }
 
 
