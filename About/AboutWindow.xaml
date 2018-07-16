@@ -26,7 +26,7 @@
                 GitHub: https://github.com/MarkThorley/designtechViewExtension
             </Hyperlink>
         </TextBlock>
-        <TextBlock HorizontalAlignment="Stretch" FontFamily="Arial" Padding="10" FontWeight="Bold" FontSize="14" Background="#f2f3f4" Foreground="#f2f3f4" Margin="0,0,-0.333,0" Height="142"><Hyperlink NavigateUri="http://www.test.com" TextDecorations="None"><InlineUIContainer>
+        <TextBlock HorizontalAlignment="Stretch" FontFamily="Arial" Padding="10" FontWeight="Bold" FontSize="14" Background="#f2f3f4" Foreground="#f2f3f4" Margin="0,0,-0.333,0" Height="142"><Hyperlink NavigateUri="http://www.designtech.io" RequestNavigate="Hyperlink_RequestNavigate" TextDecorations="None"><InlineUIContainer>
                         <Image x:Name="image"     Height="103" Source="C:\Users\markt\Documents\GitHub\designtechViewExtension\resources\designtech-logo.png" Margin="42,10,42,10"/>
             </InlineUIContainer></Hyperlink></TextBlock>
     </StackPanel>

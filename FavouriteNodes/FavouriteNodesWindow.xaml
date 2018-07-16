@@ -4,12 +4,29 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:designtechViewExtension"
-             mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300"
-            Width="500" Height="100">
+             mc:Ignorable="d"
+            Width="345
+        " Height="800" ResizeMode="NoResize" Title="Favourite Nodes" SizeToContent="Height" BorderThickness="0" Background="#FFF2F3F4" Icon="C:\Users\markt\Documents\GitHub\designtechViewExtension\resources\designtech-icon-32px.ico" Foreground="#FF13344E">
     <Grid Name="MainGrid" 
           HorizontalAlignment="Stretch"
           VerticalAlignment="Stretch">
-        <TextBlock HorizontalAlignment="Stretch" Text="{Binding ActiveNodeTypes}" FontFamily="Arial" Padding="10" FontWeight="Medium" FontSize="18" Background="#2d2d2d" Foreground="White"/>
+        <StackPanel Name="sp1" Background="White">
+            <WrapPanel Margin="5">
+                <Button Margin="5" Width="150" Height="150" Click="WatchButtonClick">Watch</Button>
+                <Button Margin="5" Width="150" Height="150">List.Create</Button>
+                <Button Margin="5" Width="150" Height="150">List.Transpose</Button>
+                <Button Margin="5" Width="150" Height="150">Filter.ByBoolMask</Button>
+                <Button Margin="5" Width="150" Height="150">Categories</Button>
+                <Button Margin="5" Width="150" Height="150">All Elements of Category</Button>
+                <Button Margin="5" Width="150" Height="150">==</Button>
+                <Button Margin="5" Width="150" Height="150">Code Block</Button>
+            </WrapPanel>
+            <TextBox x:Name="textBox" Margin="0,0,10,0" Height="12" TextWrapping="Wrap" Text="powered by" HorizontalContentAlignment="Right" FontFamily="Lintel 4" BorderThickness="0" FontSize="10"/>
+            <TextBlock HorizontalAlignment="Right" FontFamily="Arial" FontWeight="Bold" FontSize="14" Background="White" Foreground="White" ><Hyperlink NavigateUri="http://www.designtech.io" RequestNavigate="Hyperlink_RequestNavigate" TextDecorations="None"><InlineUIContainer>
+                        <Image x:Name="image"     Height="31" Source="C:\Users\markt\Documents\GitHub\designtechViewExtension\resources\designtech-logo.png" Width="120" HorizontalAlignment="Right" Margin="0,0,10,20"/>
+
+            </InlineUIContainer></Hyperlink></TextBlock>
+
+        </StackPanel>
     </Grid>
 </Window>
