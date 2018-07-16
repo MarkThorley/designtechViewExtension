@@ -1,4 +1,4 @@
-﻿<Window x:Class="designtechViewExtension.GraphDiagnosticsWindow"
+﻿<Window x:Class="designtechViewExtension.GraphInformationWindow"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:designtechViewExtension"
              mc:Ignorable="d" d:DesignWidth="300"
             ResizeMode="NoResize"
-            Width="500" MinHeight="200" Title="designtech Graph Diagnostics" SizeToContent="Height" BorderThickness="0" Background="#FFFBFBFB" Icon="C:\Users\markt\Documents\GitHub\designtechViewExtension\resources\designtech-icon-32px.ico">
+            Width="500" MinHeight="200" Title="designtech Graph Information" SizeToContent="Height" BorderThickness="0" Background="#FFFBFBFB" Icon="C:\Users\markt\Documents\GitHub\designtechViewExtension\resources\designtech-icon-32px.ico">
     <StackPanel Name="MainGrid" 
           HorizontalAlignment="Stretch"
           VerticalAlignment="Stretch">
@@ -33,8 +33,8 @@
             <TextBlock Margin="0,0,0,0" HorizontalAlignment="Stretch" Padding="10" TextAlignment="Center" Text="Groups" FontFamily="Arial" FontWeight="Bold" FontSize="14" Background="#8d9ca9" Foreground="#f2f3f4" Width="242.5"/>
         </WrapPanel>
         <WrapPanel Margin="0">
-            <ListBox x:Name="ErrorListBox" ItemsSource="{Binding ErrorNodeTypes}" DisplayMemberPath="name" FontFamily="Arial" Padding="10" FontWeight="Bold" FontSize="12" Height="200" SelectionChanged="listBox_SelectionChanged" Background="#f2f3f4" Foreground="#E59100" Width="242.5" BorderThickness="0" />
-            <ListBox x:Name="GroupListBox" ItemsSource="{Binding ErrorNodeTypes}" DisplayMemberPath="guid" FontFamily="Arial" Padding="10" FontWeight="Bold" FontSize="12" Height="200" SelectionChanged="listBox_SelectionChanged" Background="#f2f3f4" Foreground="#13344e" Width="242.5" BorderThickness="0"/>
+            <ListBox x:Name="ErrorListBox" ItemsSource="{Binding ErrorNodeTypes}" DisplayMemberPath="name" FontFamily="Arial" Padding="10" FontWeight="Bold" FontSize="12" Height="200" SelectionChanged="listBoxErrorNodes_SelectionChanged" Background="#f2f3f4" Foreground="#E59100" Width="242.5" BorderThickness="0" />
+            <ListBox x:Name="GroupListBox" ItemsSource="{Binding GroupTypes}" DisplayMemberPath="name" FontFamily="Arial" Padding="10" FontWeight="Bold" FontSize="12" Height="200" SelectionChanged="listBoxGroups_SelectionChanged" Background="#f2f3f4" Foreground="#13344e" Width="242.5" BorderThickness="0"/>
         </WrapPanel>
 
 
