@@ -24,6 +24,9 @@ using Dynamo.Graph.Workspaces;
 using Dynamo.Graph.Notes;
 using System.Diagnostics;
 using Dynamo.Models;
+using Dynamo.Graph.Nodes.ZeroTouch;
+using Dynamo.Engine;
+using System.IO;
 
 namespace designtechViewExtension
 {
@@ -32,6 +35,8 @@ namespace designtechViewExtension
     /// </summary>
     public partial class FavouriteNodesWindow : Window
     {
+        private ViewLoadedParams readyParams;
+
         public FavouriteNodesWindow()
         {
             InitializeComponent();
@@ -43,38 +48,115 @@ namespace designtechViewExtension
             e.Handled = true;
         }
 
-        private void WatchButtonClick(object sender, RoutedEventArgs e)
+        private void ListCreateButtonClick(object sender, RoutedEventArgs e)
         {
-            /*
-            ModelBase modelBase = selection.GetType().GetProperty("theNode").GetValue(selection) as ModelBase;
-            ViewLoadedParams viewLoadedParams = selection.GetType().GetProperty("theWSModel").GetValue(selection) as ViewLoadedParams;
-            string guid = selection.GetType().GetProperty("guid").GetValue(selection) as string;
 
-            foreach (NodeModel node in viewLoadedParams.CurrentWorkspaceModel.Nodes)
-            {
-                node.Deselect();
-                node.IsSelected = false;
-            }
+            FrameworkElement fe = sender as FrameworkElement;
+            FavouriteNodesViewModel dc = fe.DataContext as FavouriteNodesViewModel;
+            ReadyParams rp = dc.ReadyParamType;
+            var vlp = rp as ViewLoadedParams;
 
-            Dynamo.Graph.Workspaces.WorkspaceModel ws = viewLoadedParams.CurrentWorkspaceModel as WorkspaceModel;
-            foreach (AnnotationModel group in ws.Annotations)
-            {
-                group.Deselect();
-                group.IsSelected = false;
-            }
+            var dynViewModel = vlp.DynamoWindow.DataContext as DynamoViewModel;
+            var dm = dynViewModel.Model as DynamoModel;
 
-            foreach (NoteModel note in ws.Notes)
-            {
-                note.Deselect();
-                note.IsSelected = false;
-            }
-
-            var VM = viewLoadedParams.DynamoWindow.DataContext as DynamoViewModel;
+            List<FunctionGroup> builtinNodeLibraries = dm.LibraryServices.BuiltinFunctionGroups.ToList();
+            List<FunctionGroup> importedNodeLibraries = dm.LibraryServices.ImportedFunctionGroups.ToList();
             
-            VM.CurrentSpaceViewModel.ResetFitViewToggleCommand.Execute(null);
-            VM.AddToSelectionCommand.Execute(modelBase);
-            VM.FitViewCommand.Execute(null);
+
+            List<List<FunctionDescriptor>> builtinNodeList = new List<List<FunctionDescriptor>>();
+            foreach (FunctionGroup Library in builtinNodeLibraries)
+            {
+                builtinNodeList.Add(Library.Functions.ToList());
+            }
+
+            List<List<FunctionDescriptor>> importedNodeList = new List<List<FunctionDescriptor>>();
+            foreach (FunctionGroup Library in importedNodeLibraries)
+            {
+                importedNodeList.Add(Library.Functions.ToList());
+            }
+
+
+            Dictionary<string,FunctionDescriptor> NodesDict = new Dictionary<string, FunctionDescriptor>();
+
+            var watch1 = System.Diagnostics.Stopwatch.StartNew();
+
+            foreach (List<FunctionDescriptor> nodeSet in builtinNodeList)
+            {
+                for (int i = 0; i < nodeSet.Count(); i++)
+                {
+                    NodesDict.Add(nodeSet[i].DisplayName + "_" + i.ToString(), nodeSet[i]);
+                }
+            }
+
+            watch1.Stop();
+            var elapsedMs1 = watch1.ElapsedMilliseconds;
+
+            var watch2 = System.Diagnostics.Stopwatch.StartNew();
+
+            foreach (List<FunctionDescriptor> nodeSet in importedNodeList)
+            {
+                for (int i = 0; i < nodeSet.Count(); i++)
+                {
+                    if (nodeSet[i].DisplayName != null)
+                    {
+                        try
+                        {
+                            NodesDict.Add(nodeSet[i].DisplayName + "_" + i.ToString(), nodeSet[i]);
+                        }
+                        catch (Exception)
+                        {
+                        }
+                    }
+                }
+            }
+
+            watch2.Stop();
+            var elapsedMs2 = watch2.ElapsedMilliseconds;
+
+            Dictionary<string, FunctionDescriptor> matchDict = new Dictionary<string, FunctionDescriptor>();
+            foreach (KeyValuePair<string, FunctionDescriptor> item in NodesDict)
+            {
+                if (item.Key.Contains("List.Transpose"))
+                {
+                    matchDict.Add(item.Key, item.Value);
+                }
+            }
+
+            try
+            {
+                var addNode = new DSFunction(matchDict.First().Value);
+                dm.ExecuteCommand(new DynamoModel.CreateNodeCommand(addNode, 0, 0, true, false));
+            }
+            catch (Exception)
+            {
+            }
+
+
+
+            /*
+            //csv export
+            StringBuilder sb = new StringBuilder();
+            string FolderPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + "\\dictOutput";
+
+            foreach (KeyValuePair<string, FunctionDescriptor> item in NodesDict)
+            {
+                sb.AppendLine(item.Key);
+            }
+            if (!System.IO.Directory.Exists(FolderPath)) // If folder does not exist
+            {
+                try
+                {
+                    System.IO.Directory.CreateDirectory(FolderPath); //Create the folder
+                }
+                catch (Exception)
+                {
+                    // Quiet Fail
+                }
+            }
+            string filePath = FolderPath + "\\" + "export.csv";
+            File.WriteAllText(filePath, sb.ToString());
             */
+
         }
 
     }

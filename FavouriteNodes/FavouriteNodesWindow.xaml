@@ -12,9 +12,9 @@
           VerticalAlignment="Stretch">
         <StackPanel Name="sp1" Background="White">
             <WrapPanel Margin="5">
-                <Button Margin="5" Width="150" Height="150" Click="WatchButtonClick">Watch</Button>
+                <Button Margin="5" Width="150" Height="150" Click="ListCreateButtonClick" BindingGroup="{Binding ReadyParamType}" >List.Tranpose</Button>
+                <Button Margin="5" Width="150" Height="150">Watch</Button>
                 <Button Margin="5" Width="150" Height="150">List.Create</Button>
-                <Button Margin="5" Width="150" Height="150">List.Transpose</Button>
                 <Button Margin="5" Width="150" Height="150">Filter.ByBoolMask</Button>
                 <Button Margin="5" Width="150" Height="150">Categories</Button>
                 <Button Margin="5" Width="150" Height="150">All Elements of Category</Button>
