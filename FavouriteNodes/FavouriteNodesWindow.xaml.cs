@@ -27,6 +27,7 @@ using Dynamo.Models;
 using Dynamo.Graph.Nodes.ZeroTouch;
 using Dynamo.Engine;
 using System.IO;
+using Dynamo.Search;
 
 namespace designtechViewExtension
 {
@@ -59,68 +60,87 @@ namespace designtechViewExtension
             var dynViewModel = vlp.DynamoWindow.DataContext as DynamoViewModel;
             var dm = dynViewModel.Model as DynamoModel;
 
-            List<FunctionGroup> builtinNodeLibraries = dm.LibraryServices.BuiltinFunctionGroups.ToList();
-            List<FunctionGroup> importedNodeLibraries = dm.LibraryServices.ImportedFunctionGroups.ToList();
-            
+            //List<FunctionGroup> builtinNodeLibraries = dm.LibraryServices.BuiltinFunctionGroups.ToList();
+            //List<FunctionGroup> importedNodeLibraries = dm.LibraryServices.ImportedFunctionGroups.ToList();
 
-            List<List<FunctionDescriptor>> builtinNodeList = new List<List<FunctionDescriptor>>();
-            foreach (FunctionGroup Library in builtinNodeLibraries)
+            NodeSearchModel nsm = dm.SearchModel;
+            List<Dynamo.Search.SearchElements.NodeSearchElement> nodes = nsm.SearchEntries.ToList();
+
+            //List<string> nodenames = new List<string>();
+            //foreach (Dynamo.Search.SearchElements.NodeSearchElement n in nodes)
+            //{
+            //    nodenames.Add(n.Name);
+            //}
+
+
+            //List<List<FunctionDescriptor>> builtinNodeList = new List<List<FunctionDescriptor>>();
+            //foreach (FunctionGroup Library in builtinNodeLibraries)
+            //{
+            //    builtinNodeList.Add(Library.Functions.ToList());
+            //}
+
+            //List<List<FunctionDescriptor>> importedNodeList = new List<List<FunctionDescriptor>>();
+            //foreach (FunctionGroup Library in importedNodeLibraries)
+            //{
+            //    importedNodeList.Add(Library.Functions.ToList());
+            ///}
+
+
+            //Dictionary<string,FunctionDescriptor> NodesDict = new Dictionary<string, FunctionDescriptor>();
+
+            //var watch1 = System.Diagnostics.Stopwatch.StartNew();
+
+            //foreach (List<FunctionDescriptor> nodeSet in builtinNodeList)
+            //{
+            //    for (int i = 0; i < nodeSet.Count(); i++)
+            //    {
+            //        NodesDict.Add(nodeSet[i].DisplayName + "_" + i.ToString(), nodeSet[i]);
+             //   }
+            //}
+
+            //watch1.Stop();
+            //var elapsedMs1 = watch1.ElapsedMilliseconds;
+
+            //var watch2 = System.Diagnostics.Stopwatch.StartNew();
+
+            //foreach (List<FunctionDescriptor> nodeSet in importedNodeList)
+            //{
+            //    for (int i = 0; i < nodeSet.Count(); i++)
+            //    {
+             //       if (nodeSet[i].DisplayName != null)
+            //        {
+             //           try
+             //           {
+             //               NodesDict.Add(nodeSet[i].DisplayName + "_" + i.ToString(), nodeSet[i]);
+            //            }
+             //           catch (Exception)
+              //          {
+             //           }
+              //      }
+             //   }
+            //}
+
+            //watch2.Stop();
+            //var elapsedMs2 = watch2.ElapsedMilliseconds;
+
+            Dictionary<string, NodeModel> matchDict = new Dictionary<string, NodeModel>();
+            //foreach (KeyValuePair<string, FunctionDescriptor> item in NodesDict)
+            //{
+            //    if (item.Key.Contains("List.Transpose"))
+            //    {
+             //       matchDict.Add(item.Key, item.Value);
+             //   }
+           // }
+
+            foreach (Dynamo.Search.SearchElements.NodeSearchElement n in nodes)
             {
-                builtinNodeList.Add(Library.Functions.ToList());
-            }
-
-            List<List<FunctionDescriptor>> importedNodeList = new List<List<FunctionDescriptor>>();
-            foreach (FunctionGroup Library in importedNodeLibraries)
-            {
-                importedNodeList.Add(Library.Functions.ToList());
-            }
-
-
-            Dictionary<string,FunctionDescriptor> NodesDict = new Dictionary<string, FunctionDescriptor>();
-
-            var watch1 = System.Diagnostics.Stopwatch.StartNew();
-
-            foreach (List<FunctionDescriptor> nodeSet in builtinNodeList)
-            {
-                for (int i = 0; i < nodeSet.Count(); i++)
+                if (n.Name == "Watch")
                 {
-                    NodesDict.Add(nodeSet[i].DisplayName + "_" + i.ToString(), nodeSet[i]);
+                    matchDict.Add(n.Name, n as NodeModel);
                 }
             }
 
-            watch1.Stop();
-            var elapsedMs1 = watch1.ElapsedMilliseconds;
-
-            var watch2 = System.Diagnostics.Stopwatch.StartNew();
-
-            foreach (List<FunctionDescriptor> nodeSet in importedNodeList)
-            {
-                for (int i = 0; i < nodeSet.Count(); i++)
-                {
-                    if (nodeSet[i].DisplayName != null)
-                    {
-                        try
-                        {
-                            NodesDict.Add(nodeSet[i].DisplayName + "_" + i.ToString(), nodeSet[i]);
-                        }
-                        catch (Exception)
-                        {
-                        }
-                    }
-                }
-            }
-
-            watch2.Stop();
-            var elapsedMs2 = watch2.ElapsedMilliseconds;
-
-            Dictionary<string, FunctionDescriptor> matchDict = new Dictionary<string, FunctionDescriptor>();
-            foreach (KeyValuePair<string, FunctionDescriptor> item in NodesDict)
-            {
-                if (item.Key.Contains("List.Transpose"))
-                {
-                    matchDict.Add(item.Key, item.Value);
-                }
-            }
+            Dynamo.Search.SearchElements.Nod
 
             try
             {
