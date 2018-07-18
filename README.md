@@ -20,6 +20,7 @@ Access the View Extension from the drop down menu designtech in Dynamo
 
 ## VISUAL STUDIO POST-BUILD EVENTS:
 copy "$(ProjectDir)bin\Release\*.xml" "C:\Users\markt\Documents\GitHub\Dynamo\bin\AnyCPU\Debug\viewExtensions"
+
 copy "$(ProjectDir)bin\Release\*.dll" "C:\Users\markt\Documents\GitHub\Dynamo\bin\AnyCPU\Debug\"
 
 
