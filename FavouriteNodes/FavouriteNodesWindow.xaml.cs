@@ -38,6 +38,8 @@ namespace designtechViewExtension
     public partial class FavouriteNodesWindow : Window
     {
         private ViewLoadedParams readyParams;
+        int doubleClickTime = 0;
+        int threshold = 200;
 
         public FavouriteNodesWindow()
         {
@@ -52,6 +54,7 @@ namespace designtechViewExtension
 
         private void ButtonClick(object sender, RoutedEventArgs e)
         {
+
             Button but = e.Source as Button;
             string content = but.Content.ToString();
 
@@ -122,5 +125,16 @@ namespace designtechViewExtension
 
         }
 
+        private void UpdateValue(object sender, RoutedEventArgs e)
+        {
+            button1.Content = textBox1.Text;
+            button2.Content = textBox2.Text;
+            button3.Content = textBox3.Text;
+            button4.Content = textBox4.Text;
+            button5.Content = textBox5.Text;
+            button6.Content = textBox6.Text;
+            button7.Content = textBox7.Text;
+            button8.Content = textBox8.Text;
+        }
     }
 }
