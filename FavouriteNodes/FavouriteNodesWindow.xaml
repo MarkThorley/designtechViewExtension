@@ -12,7 +12,7 @@
           VerticalAlignment="Stretch">
         <StackPanel Name="sp1" Background="White">
             <WrapPanel Margin="5">
-                <Button Margin="5" Width="150" Height="150" Click="ListCreateButtonClick" BindingGroup="{Binding ReadyParamType}" >List.Tranpose</Button>
+                <Button Margin="5" Width="150" Height="150" Click="ListCreateButtonClick" BindingGroup="{Binding ReadyParamType}" FontSize="12" Content="Line.ByStartPointEndPoint" ></Button>
                 <Button Margin="5" Width="150" Height="150">Watch</Button>
                 <Button Margin="5" Width="150" Height="150">List.Create</Button>
                 <Button Margin="5" Width="150" Height="150">Filter.ByBoolMask</Button>
