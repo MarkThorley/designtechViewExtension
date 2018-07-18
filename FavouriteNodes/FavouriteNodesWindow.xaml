@@ -13,20 +13,19 @@
         <StackPanel Name="sp1" Background="White">
             <WrapPanel Margin="5">
                 <Button Margin="5" Width="150" Height="50" Click="ButtonClick" BindingGroup="{Binding ReadyParamType}" FontSize="12" Content="Watch" ></Button>
-                <Button Margin="5" Width="150" Height="50" Click="ButtonClick" BindingGroup="{Binding ReadyParamType}" FontSize="12" Content="Math.Abs" ></Button>
+                <Button Margin="5" Width="150" Height="50" Click="ButtonClick" BindingGroup="{Binding ReadyParamType}" FontSize="12" Content="List.Transpose" ></Button>
                 <Button Margin="5" Width="150" Height="50" Click="ButtonClick" BindingGroup="{Binding ReadyParamType}" FontSize="12" Content="List.Create" ></Button>
                 <Button Margin="5" Width="150" Height="50" Click="ButtonClick" BindingGroup="{Binding ReadyParamType}" FontSize="12" Content="List.FilterByBoolMask" ></Button>
                 <Button Margin="5" Width="150" Height="50" Click="ButtonClick" BindingGroup="{Binding ReadyParamType}" FontSize="12" Content="Line.ByStartPointEndPoint" ></Button>
                 <Button Margin="5" Width="150" Height="50" Click="ButtonClick" BindingGroup="{Binding ReadyParamType}" FontSize="12" Content="Point.ByCoordinates" ></Button>
-                <Button Margin="5" Width="150" Height="50" Click="ButtonClick" BindingGroup="{Binding ReadyParamType}" FontSize="12" Content="Dynamo.Version" ></Button>
-                <Button Margin="5" Width="150" Height="50" Click="ButtonClick" BindingGroup="{Binding ReadyParamType}" FontSize="12" Content="BB Data" ></Button>
+                <Button Margin="5" Width="150" Height="50" Click="ButtonClick" BindingGroup="{Binding ReadyParamType}" FontSize="12" Content="Categories" ></Button>
+                <Button Margin="5" Width="150" Height="50" Click="ButtonClick" BindingGroup="{Binding ReadyParamType}" FontSize="12" Content="All Elements of Category" ></Button>
             </WrapPanel>
             <TextBox x:Name="textBox" Margin="0,0,10,0" Height="12" TextWrapping="Wrap" Text="powered by" HorizontalContentAlignment="Right" FontFamily="Lintel 4" BorderThickness="0" FontSize="10"/>
             <TextBlock HorizontalAlignment="Right" FontFamily="Arial" FontWeight="Bold" FontSize="14" Background="White" Foreground="White" ><Hyperlink NavigateUri="http://www.designtech.io" RequestNavigate="Hyperlink_RequestNavigate" TextDecorations="None"><InlineUIContainer>
                         <Image x:Name="image"     Height="31" Source="C:\Users\markt\Documents\GitHub\designtechViewExtension\resources\designtech-logo.png" Width="120" HorizontalAlignment="Right" Margin="0,0,10,20"/>
 
             </InlineUIContainer></Hyperlink></TextBlock>
-
         </StackPanel>
     </Grid>
 </Window>
