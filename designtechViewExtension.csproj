@@ -134,6 +134,10 @@
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="designtechViewExtension.cs" />
+    <Compile Include="FavouriteNodes\FavouriteNodesViewModel.cs" />
+    <Compile Include="FavouriteNodes\FavouriteNodesWindow.xaml.cs">
+      <DependentUpon>FavouriteNodesWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GraphInformation\GraphInformationWindow.xaml.cs">
       <DependentUpon>GraphInformationWindow.xaml</DependentUpon>
     </Compile>
@@ -145,6 +149,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="About\AboutWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="FavouriteNodes\FavouriteNodesWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

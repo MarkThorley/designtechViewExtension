@@ -1,0 +1,31 @@
+﻿<Window x:Class="designtechViewExtension.FavouriteNodesWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:designtechViewExtension"
+             mc:Ignorable="d"
+            Width="345
+        " Height="350" ResizeMode="NoResize" Title="Favourite Nodes" SizeToContent="Height" BorderThickness="0" Background="#FFF2F3F4" Icon="C:\Users\markt\Documents\GitHub\designtechViewExtension\resources\designtech-icon-32px.ico" Foreground="#FF13344E">
+    <Grid Name="MainGrid" 
+          HorizontalAlignment="Stretch"
+          VerticalAlignment="Stretch">
+        <StackPanel Name="sp1" Background="White">
+            <WrapPanel Margin="5">
+                <Button Margin="5" Width="150" Height="50" Click="ButtonClick" BindingGroup="{Binding ReadyParamType}" FontSize="12" Content="Watch" ></Button>
+                <Button Margin="5" Width="150" Height="50" Click="ButtonClick" BindingGroup="{Binding ReadyParamType}" FontSize="12" Content="List.Transpose" ></Button>
+                <Button Margin="5" Width="150" Height="50" Click="ButtonClick" BindingGroup="{Binding ReadyParamType}" FontSize="12" Content="List.Create" ></Button>
+                <Button Margin="5" Width="150" Height="50" Click="ButtonClick" BindingGroup="{Binding ReadyParamType}" FontSize="12" Content="List.FilterByBoolMask" ></Button>
+                <Button Margin="5" Width="150" Height="50" Click="ButtonClick" BindingGroup="{Binding ReadyParamType}" FontSize="12" Content="Line.ByStartPointEndPoint" ></Button>
+                <Button Margin="5" Width="150" Height="50" Click="ButtonClick" BindingGroup="{Binding ReadyParamType}" FontSize="12" Content="Point.ByCoordinates" ></Button>
+                <Button Margin="5" Width="150" Height="50" Click="ButtonClick" BindingGroup="{Binding ReadyParamType}" FontSize="12" Content="Categories" ></Button>
+                <Button Margin="5" Width="150" Height="50" Click="ButtonClick" BindingGroup="{Binding ReadyParamType}" FontSize="12" Content="All Elements of Category" ></Button>
+            </WrapPanel>
+            <TextBox x:Name="textBox" Margin="0,0,10,0" Height="12" TextWrapping="Wrap" Text="powered by" HorizontalContentAlignment="Right" FontFamily="Lintel 4" BorderThickness="0" FontSize="10"/>
+            <TextBlock HorizontalAlignment="Right" FontFamily="Arial" FontWeight="Bold" FontSize="14" Background="White" Foreground="White" ><Hyperlink NavigateUri="http://www.designtech.io" RequestNavigate="Hyperlink_RequestNavigate" TextDecorations="None"><InlineUIContainer>
+                        <Image x:Name="image"     Height="31" Source="C:\Users\markt\Documents\GitHub\designtechViewExtension\resources\designtech-logo.png" Width="120" HorizontalAlignment="Right" Margin="0,0,10,20"/>
+
+            </InlineUIContainer></Hyperlink></TextBlock>
+        </StackPanel>
+    </Grid>
+</Window>
