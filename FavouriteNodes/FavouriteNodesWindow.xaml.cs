@@ -50,7 +50,7 @@ namespace designtechViewExtension
             e.Handled = true;
         }
 
-        private void ListCreateButtonClick(object sender, RoutedEventArgs e)
+        private void ButtonClick(object sender, RoutedEventArgs e)
         {
             Button but = e.Source as Button;
             string content = but.Content.ToString();
@@ -87,7 +87,6 @@ namespace designtechViewExtension
 
                 try
                 {
-                    //var addNode = new DSFunction(matchDict.First().Value);
                     dm.ExecuteCommand(new DynamoModel.CreateNodeCommand(nM, 0, 0, true, false));
                 }
                 catch (Exception)
