@@ -56,7 +56,7 @@ namespace designtechViewExtension
         {
 
             Button but = e.Source as Button;
-            string content = but.Content.ToString();
+            string content = but.Content.ToString().ToUpper();
 
 
             FrameworkElement fe = sender as FrameworkElement;
@@ -76,7 +76,7 @@ namespace designtechViewExtension
             for (int i = 0; i < nodes.Count; i++)
             {
                 nodeNames.Add(nodes[i].FullName);
-                if (nodes[i].FullName.Contains(content))
+                if (nodes[i].FullName.ToUpper().Contains(content))
                 {
                     nodePosition.Add(i);
                 }

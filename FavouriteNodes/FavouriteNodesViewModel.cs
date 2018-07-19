@@ -8,6 +8,7 @@ using Dynamo.Models;
 using System.Linq;
 using Dynamo.Graph.Nodes.ZeroTouch;
 using Dynamo.Wpf.Extensions;
+using System.IO;
 
 namespace designtechViewExtension
 {
@@ -15,16 +16,6 @@ namespace designtechViewExtension
         {
             private string activeNodeTypes;
             private ReadyParams readyParams;
-
-            // Displays active nodes in the workspace
-            public string ActiveNodeTypes
-            {
-                get
-                {
-                    activeNodeTypes = getNodeTypes();
-                    return activeNodeTypes;
-                }
-            }
 
             // Displays active nodes in the workspace
             public ReadyParams ReadyParamType
@@ -36,19 +27,9 @@ namespace designtechViewExtension
                 }
             }
 
-            // Helper function that builds string of active nodes
-            public string getNodeTypes()
-            {
-                string output = "Active nodes:\n";
-
-                foreach (NodeModel node in readyParams.CurrentWorkspaceModel.Nodes)
-                {
-                    string nickName = node.Name;
-                    output += nickName + "\n";
-                }
-
-                return output;
-            }
+            private string dynFavSettingsFileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                                                "designtechViewExtension",
+                                                "dynFavSettings.csv");
 
             // Helper function that builds string of active nodes
             public ReadyParams getReadyParams()
@@ -59,19 +40,10 @@ namespace designtechViewExtension
             public FavouriteNodesViewModel(ReadyParams p)
             {
                 readyParams = p;
-                p.CurrentWorkspaceModel.NodeAdded += CurrentWorkspaceModel_NodesChanged;
-                p.CurrentWorkspaceModel.NodeRemoved += CurrentWorkspaceModel_NodesChanged;
-            }
-
-            private void CurrentWorkspaceModel_NodesChanged(NodeModel obj)
-            {
-                RaisePropertyChanged("ActiveNodeTypes");
             }
 
             public void Dispose()
             {
-                readyParams.CurrentWorkspaceModel.NodeAdded -= CurrentWorkspaceModel_NodesChanged;
-                readyParams.CurrentWorkspaceModel.NodeRemoved -= CurrentWorkspaceModel_NodesChanged;
             }
         }
 }
