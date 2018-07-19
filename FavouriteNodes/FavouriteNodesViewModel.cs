@@ -26,10 +26,6 @@ namespace designtechViewExtension
                 }
             }
 
-            private string dynFavSettingsFileName = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
-                                                "designtechViewExtension",
-                                                "dynFavSettings.csv");
-
             // Helper function that builds string of active nodes
             public ReadyParams getReadyParams()
             {
