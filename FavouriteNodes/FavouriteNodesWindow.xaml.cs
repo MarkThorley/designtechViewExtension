@@ -145,33 +145,6 @@ namespace designtechViewExtension
                 {
                 }
             }
-                        
-            
-
-            /*
-            //csv export
-            StringBuilder sb = new StringBuilder();
-            string FolderPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + "\\Output";
-
-            foreach (string s in nodeNames)
-            {
-                sb.AppendLine(s);
-            }
-            if (!System.IO.Directory.Exists(FolderPath)) // If folder does not exist
-            {
-                try
-                {
-                    System.IO.Directory.CreateDirectory(FolderPath); //Create the folder
-                }
-                catch (Exception)
-                {
-                    // Quiet Fail
-                }
-            }
-            string filePath = FolderPath + "\\" + "export.csv";
-            File.WriteAllText(filePath, sb.ToString());
-            */
-
         }
 
         private void UpdateValue(object sender, RoutedEventArgs e)
