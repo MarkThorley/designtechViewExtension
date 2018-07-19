@@ -5,27 +5,59 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:designtechViewExtension"
              mc:Ignorable="d"
-            Width="345
-        " Height="350" ResizeMode="NoResize" Title="Favourite Nodes" SizeToContent="Height" BorderThickness="0" Background="#FFF2F3F4" Icon="C:\Users\markt\Documents\GitHub\designtechViewExtension\resources\designtech-icon-32px.ico" Foreground="#FF13344E">
+            Width="345"
+         ResizeMode="NoResize" Title="Favourite Nodes" SizeToContent="Height" BorderThickness="0" Background="#FFF2F3F4" Icon="C:\Users\markt\Documents\GitHub\designtechViewExtension\resources\designtech-icon-32px.ico" Foreground="#FF13344E" Height="640.667">
     <Grid Name="MainGrid" 
           HorizontalAlignment="Stretch"
           VerticalAlignment="Stretch">
         <StackPanel Name="sp1" Background="White">
             <WrapPanel Margin="5">
-                <Button Margin="5" Width="150" Height="50" Click="ButtonClick" BindingGroup="{Binding ReadyParamType}" FontSize="12" Content="Watch" ></Button>
-                <Button Margin="5" Width="150" Height="50" Click="ButtonClick" BindingGroup="{Binding ReadyParamType}" FontSize="12" Content="List.Transpose" ></Button>
-                <Button Margin="5" Width="150" Height="50" Click="ButtonClick" BindingGroup="{Binding ReadyParamType}" FontSize="12" Content="List.Create" ></Button>
-                <Button Margin="5" Width="150" Height="50" Click="ButtonClick" BindingGroup="{Binding ReadyParamType}" FontSize="12" Content="List.FilterByBoolMask" ></Button>
-                <Button Margin="5" Width="150" Height="50" Click="ButtonClick" BindingGroup="{Binding ReadyParamType}" FontSize="12" Content="Line.ByStartPointEndPoint" ></Button>
-                <Button Margin="5" Width="150" Height="50" Click="ButtonClick" BindingGroup="{Binding ReadyParamType}" FontSize="12" Content="Point.ByCoordinates" ></Button>
-                <Button Margin="5" Width="150" Height="50" Click="ButtonClick" BindingGroup="{Binding ReadyParamType}" FontSize="12" Content="Categories" ></Button>
-                <Button Margin="5" Width="150" Height="50" Click="ButtonClick" BindingGroup="{Binding ReadyParamType}" FontSize="12" Content="All Elements of Category" ></Button>
+                <Button Name="button1" Margin="5" Width="150" Height="50" Click="ButtonClick" BindingGroup="{Binding ReadyParamType}" FontSize="12" ></Button>
+                <Button Name="button2" Margin="5" Width="150" Height="50" Click="ButtonClick" BindingGroup="{Binding ReadyParamType}" FontSize="12" ></Button>
+                <Button Name="button3" Margin="5" Width="150" Height="50" Click="ButtonClick" BindingGroup="{Binding ReadyParamType}" FontSize="12" ></Button>
+                <Button Name="button4" Margin="5" Width="150" Height="50" Click="ButtonClick" BindingGroup="{Binding ReadyParamType}" FontSize="12" ></Button>
+                <Button Name="button5" Margin="5" Width="150" Height="50" Click="ButtonClick" BindingGroup="{Binding ReadyParamType}" FontSize="12" ></Button>
+                <Button Name="button6" Margin="5" Width="150" Height="50" Click="ButtonClick" BindingGroup="{Binding ReadyParamType}" FontSize="12" ></Button>
+                <Button Name="button7" Margin="5" Width="150" Height="50" Click="ButtonClick" BindingGroup="{Binding ReadyParamType}" FontSize="12" ></Button>
+                <Button Name="button8" Margin="5" Width="150" Height="50" Click="ButtonClick" BindingGroup="{Binding ReadyParamType}" FontSize="12" ></Button>
             </WrapPanel>
-            <TextBox x:Name="textBox" Margin="0,0,10,0" Height="12" TextWrapping="Wrap" Text="powered by" HorizontalContentAlignment="Right" FontFamily="Lintel 4" BorderThickness="0" FontSize="10"/>
+            <TextBox x:Name="textBox" Margin="0,0,20,0" Height="12" TextWrapping="Wrap" Text="powered by" HorizontalContentAlignment="Right" FontFamily="Lintel 4" BorderThickness="0" FontSize="10"/>
             <TextBlock HorizontalAlignment="Right" FontFamily="Arial" FontWeight="Bold" FontSize="14" Background="White" Foreground="White" ><Hyperlink NavigateUri="http://www.designtech.io" RequestNavigate="Hyperlink_RequestNavigate" TextDecorations="None"><InlineUIContainer>
-                        <Image x:Name="image"     Height="31" Source="C:\Users\markt\Documents\GitHub\designtechViewExtension\resources\designtech-logo.png" Width="120" HorizontalAlignment="Right" Margin="0,0,10,20"/>
+                        <Image x:Name="image"     Height="31" Source="C:\Users\markt\Documents\GitHub\designtechViewExtension\resources\designtech-logo.png" Width="120" HorizontalAlignment="Right" Margin="0,0,20,20"/>
 
             </InlineUIContainer></Hyperlink></TextBlock>
+
+
         </StackPanel>
+        <Expander x:Name="expander" IsExpanded="False" Header="Set Values" HorizontalAlignment="Left" Margin="10,270,0,5" VerticalAlignment="Top" Width="320">
+            <Grid HorizontalAlignment="Left" Height="293" Margin="10,10,0,0" Width="300">
+                <Label x:Name="label1" Content="1" HorizontalAlignment="Left" Margin="10,5,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.325,-0.641" Width="22" Height="25" FontWeight="Bold"/>
+                <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="25" Margin="32,5,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" VerticalContentAlignment="Center"/>
+
+                <Label x:Name="label2" Content="2" HorizontalAlignment="Left" Margin="10,35,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.325,-0.641" Width="22" Height="25" FontWeight="Bold"/>
+                <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="25" Margin="32,35,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" VerticalContentAlignment="Center"/>
+
+                <Label x:Name="label3" Content="3" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.325,-0.641" Width="22" Height="25" FontWeight="Bold"/>
+                <TextBox x:Name="textBox3" HorizontalAlignment="Left" Height="25" Margin="32,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" VerticalContentAlignment="Center"/>
+
+                <Label x:Name="label4" Content="4" HorizontalAlignment="Left" Margin="10,95,0,-20" VerticalAlignment="Top" RenderTransformOrigin="-1.325,-0.641" Width="22" Height="25" FontWeight="Bold"/>
+                <TextBox x:Name="textBox4" HorizontalAlignment="Left" Height="25" Margin="32,95,0,-20" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" VerticalContentAlignment="Center"/>
+
+                <Label x:Name="label5" Content="5" HorizontalAlignment="Left" Margin="10,125,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.325,-0.641" Width="22" Height="25" FontWeight="Bold"/>
+                <TextBox x:Name="textBox5" HorizontalAlignment="Left" Height="25" Margin="32,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" VerticalContentAlignment="Center"/>
+
+                <Label x:Name="label6" Content="6" HorizontalAlignment="Left" Margin="10,155,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.325,-0.641" Width="22" Height="25" FontWeight="Bold"/>
+                <TextBox x:Name="textBox6" HorizontalAlignment="Left" Height="25" Margin="32,155,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" VerticalContentAlignment="Center"/>
+
+                <Label x:Name="label7" Content="7" HorizontalAlignment="Left" Margin="10,185,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.325,-0.641" Width="22" Height="25" FontWeight="Bold"/>
+                <TextBox x:Name="textBox7" HorizontalAlignment="Left" Height="25" Margin="32,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" VerticalContentAlignment="Center"/>
+
+                <Label x:Name="label8" Content="8" HorizontalAlignment="Left" Margin="10,215,0,0" VerticalAlignment="Top" RenderTransformOrigin="-1.325,-0.641" Width="22" Height="25" FontWeight="Bold"/>
+                <TextBox x:Name="textBox8" HorizontalAlignment="Left" Height="25" Margin="32,215,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" VerticalContentAlignment="Center"/>
+
+                <Button x:Name="confirm" Click="UpdateValue" Content="Confirm" HorizontalAlignment="Left" Margin="215,245,0,0" VerticalAlignment="Top" Width="67"/>
+                <Button x:Name="cancel" Click="CancelValue" Content="Cancel" HorizontalAlignment="Left" Margin="143,245,0,0" VerticalAlignment="Top" Width="67"/>
+            </Grid>
+        </Expander>
     </Grid>
 </Window>

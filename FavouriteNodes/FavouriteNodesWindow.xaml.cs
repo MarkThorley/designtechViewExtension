@@ -37,11 +37,62 @@ namespace designtechViewExtension
     /// </summary>
     public partial class FavouriteNodesWindow : Window
     {
-        private ViewLoadedParams readyParams;
 
         public FavouriteNodesWindow()
         {
             InitializeComponent();
+
+            List<TextBox> textBoxList = new List<TextBox>();
+            textBoxList.Add(textBox1);
+            textBoxList.Add(textBox2);
+            textBoxList.Add(textBox3);
+            textBoxList.Add(textBox4);
+            textBoxList.Add(textBox5);
+            textBoxList.Add(textBox6);
+            textBoxList.Add(textBox7);
+            textBoxList.Add(textBox8);
+
+            List<Button> buttonList = new List<Button>();
+            buttonList.Add(button1);
+            buttonList.Add(button2);
+            buttonList.Add(button3);
+            buttonList.Add(button4);
+            buttonList.Add(button5);
+            buttonList.Add(button6);
+            buttonList.Add(button7);
+            buttonList.Add(button8);
+
+            string dynFavSettingsFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\Dynamo" + "\\designtechViewExtension";
+
+            string filePath = dynFavSettingsFolder + "\\dynFavSettings.csv";
+
+            if (File.Exists(filePath))
+            {
+                StreamReader sr = new StreamReader(filePath);
+
+                List<string> favSettings = new List<string>();
+                while (!sr.EndOfStream)
+                {
+                    favSettings.Add(sr.ReadLine());
+                }
+
+                for (int i = 0; i < favSettings.Count; i++)
+                {
+                    textBoxList[i].Text = favSettings[i].ToString();
+                    buttonList[i].Content = favSettings[i].ToString();
+                }
+
+            }
+            else
+            {
+                for (int i = 0; i < buttonList.Count; i++)
+                {
+                    textBoxList[i].Text = "Set Value " + (i + 1).ToString();
+                    buttonList[i].Content = "Set Value " + (i + 1).ToString();
+                }
+            }
+
+
         }
 
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
@@ -52,8 +103,9 @@ namespace designtechViewExtension
 
         private void ButtonClick(object sender, RoutedEventArgs e)
         {
+
             Button but = e.Source as Button;
-            string content = but.Content.ToString();
+            string content = but.Content.ToString().ToUpper();
 
 
             FrameworkElement fe = sender as FrameworkElement;
@@ -73,7 +125,7 @@ namespace designtechViewExtension
             for (int i = 0; i < nodes.Count; i++)
             {
                 nodeNames.Add(nodes[i].FullName);
-                if (nodes[i].FullName.Contains(content))
+                if (nodes[i].FullName.ToUpper().Contains(content))
                 {
                     nodePosition.Add(i);
                 }
@@ -93,34 +145,81 @@ namespace designtechViewExtension
                 {
                 }
             }
-                        
-            
+        }
 
-            /*
+        private void UpdateValue(object sender, RoutedEventArgs e)
+        {
+            button1.Content = textBox1.Text;
+            button2.Content = textBox2.Text;
+            button3.Content = textBox3.Text;
+            button4.Content = textBox4.Text;
+            button5.Content = textBox5.Text;
+            button6.Content = textBox6.Text;
+            button7.Content = textBox7.Text;
+            button8.Content = textBox8.Text;
+
             //csv export
             StringBuilder sb = new StringBuilder();
-            string FolderPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + "\\Output";
 
-            foreach (string s in nodeNames)
-            {
-                sb.AppendLine(s);
-            }
-            if (!System.IO.Directory.Exists(FolderPath)) // If folder does not exist
+            string dynFavSettingsFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\Dynamo" + "\\designtechViewExtension";
+
+            if (!System.IO.Directory.Exists(dynFavSettingsFolder)) // If folder does not exist
             {
                 try
                 {
-                    System.IO.Directory.CreateDirectory(FolderPath); //Create the folder
+                    System.IO.Directory.CreateDirectory(dynFavSettingsFolder); //Create the folder
                 }
                 catch (Exception)
                 {
                     // Quiet Fail
                 }
             }
-            string filePath = FolderPath + "\\" + "export.csv";
-            File.WriteAllText(filePath, sb.ToString());
-            */
+            string filePath = dynFavSettingsFolder + "\\dynFavSettings.csv";
 
+            //Clear the csv file first
+            File.WriteAllText(filePath, string.Empty);
+
+            sb.AppendLine(textBox1.Text);
+            sb.AppendLine(textBox2.Text);
+            sb.AppendLine(textBox3.Text);
+            sb.AppendLine(textBox4.Text);
+            sb.AppendLine(textBox5.Text);
+            sb.AppendLine(textBox6.Text);
+            sb.AppendLine(textBox7.Text);
+            sb.AppendLine(textBox8.Text);
+
+            File.WriteAllText(filePath, sb.ToString());
         }
 
+        private void CancelValue(object sender, RoutedEventArgs e)
+        {
+            List<TextBox> textBoxList = new List<TextBox>();
+            textBoxList.Add(textBox1);
+            textBoxList.Add(textBox2);
+            textBoxList.Add(textBox3);
+            textBoxList.Add(textBox4);
+            textBoxList.Add(textBox5);
+            textBoxList.Add(textBox6);
+            textBoxList.Add(textBox7);
+            textBoxList.Add(textBox8);
+
+            string dynFavSettingsFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\Dynamo" + "\\designtechViewExtension";
+
+            string filePath = dynFavSettingsFolder + "\\dynFavSettings.csv";
+
+            StreamReader sr = new StreamReader(filePath);
+
+            List<string> favSettings = new List<string>();
+            while (!sr.EndOfStream)
+            {
+                favSettings.Add(sr.ReadLine());
+            }
+
+            for (int i = 0; i < favSettings.Count(); i++)
+            {
+                textBoxList[i].Text = favSettings[i].ToString();
+            }
+
+        }
     }
 }
