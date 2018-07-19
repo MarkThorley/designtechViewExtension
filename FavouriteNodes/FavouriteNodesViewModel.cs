@@ -14,7 +14,6 @@ namespace designtechViewExtension
 {
     public class FavouriteNodesViewModel : NotificationObject, IDisposable
         {
-            private string activeNodeTypes;
             private ReadyParams readyParams;
 
             // Displays active nodes in the workspace
