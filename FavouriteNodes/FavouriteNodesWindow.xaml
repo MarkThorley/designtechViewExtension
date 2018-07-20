@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:designtechViewExtension"
              mc:Ignorable="d"
             Width="345"
-         ResizeMode="NoResize" Title="Favourite Nodes" SizeToContent="Height" BorderThickness="0" Background="#FFF2F3F4" Icon="C:\Users\markt\Documents\GitHub\designtechViewExtension\resources\designtech-icon-32px.ico" Foreground="#FF13344E" Height="640.667">
+         ResizeMode="NoResize" Title="Favourite Nodes" SizeToContent="Height" BorderThickness="0" Background="#FFF2F3F4" Icon="resources\designtech-icon-32px.ico" Foreground="#FF13344E" Height="640.667">
     <Grid Name="MainGrid" 
           HorizontalAlignment="Stretch"
           VerticalAlignment="Stretch">
@@ -23,11 +23,9 @@
             </WrapPanel>
             <TextBox x:Name="textBox" Margin="0,0,20,0" Height="12" TextWrapping="Wrap" Text="powered by" HorizontalContentAlignment="Right" FontFamily="Lintel 4" BorderThickness="0" FontSize="10"/>
             <TextBlock HorizontalAlignment="Right" FontFamily="Arial" FontWeight="Bold" FontSize="14" Background="White" Foreground="White" ><Hyperlink NavigateUri="http://www.designtech.io" RequestNavigate="Hyperlink_RequestNavigate" TextDecorations="None"><InlineUIContainer>
-                        <Image x:Name="image"     Height="31" Source="C:\Users\markt\Documents\GitHub\designtechViewExtension\resources\designtech-logo.png" Width="120" HorizontalAlignment="Right" Margin="0,0,20,20"/>
+                        <Image x:Name="image"     Height="31" Source="resources\designtech-logo.png" Width="120" HorizontalAlignment="Right" Margin="0,0,20,20"/>
 
             </InlineUIContainer></Hyperlink></TextBlock>
-
-
         </StackPanel>
         <Expander x:Name="expander" IsExpanded="False" Header="Set Values" HorizontalAlignment="Left" Margin="10,270,0,5" VerticalAlignment="Top" Width="320">
             <Grid HorizontalAlignment="Left" Height="293" Margin="10,10,0,0" Width="300">

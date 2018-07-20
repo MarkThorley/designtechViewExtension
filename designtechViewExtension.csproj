@@ -162,12 +162,16 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="GraphInformation\resources\designtech-logo.png" />
+    <Resource Include="GraphInformation\resources\designtech-icon-32px.ico" />
+    <Resource Include="About\resources\designtech-icon-32px.ico" />
+    <Resource Include="About\resources\designtech-logo.png" />
     <Content Include="designtechViewExtension_ViewExtensionDefinition.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
     </Content>
-    <Resource Include="resources\designtech-icon-32px.ico" />
-    <Resource Include="resources\designtech-logo.png" />
+    <Resource Include="FavouriteNodes\resources\designtech-icon-32px.ico" />
+    <Resource Include="FavouriteNodes\resources\designtech-logo.png" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
