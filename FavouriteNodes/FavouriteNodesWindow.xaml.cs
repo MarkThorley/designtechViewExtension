@@ -207,19 +207,29 @@ namespace designtechViewExtension
 
             string filePath = dynFavSettingsFolder + "\\dynFavSettings.csv";
 
-            StreamReader sr = new StreamReader(filePath);
-
-            List<string> favSettings = new List<string>();
-            while (!sr.EndOfStream)
+            if (File.Exists(filePath))
             {
-                favSettings.Add(sr.ReadLine());
-            }
 
-            for (int i = 0; i < favSettings.Count(); i++)
+                StreamReader sr = new StreamReader(filePath);
+                List<string> favSettings = new List<string>();
+                while (!sr.EndOfStream)
+                {
+                    favSettings.Add(sr.ReadLine());
+                }
+
+                for (int i = 0; i < favSettings.Count(); i++)
+                {
+                    textBoxList[i].Text = favSettings[i].ToString();
+                }
+            }
+            else
             {
-                textBoxList[i].Text = favSettings[i].ToString();
-            }
+                for (int i = 0; i < textBoxList.Count(); i++)
+                {
+                    textBoxList[i].Text = "Set Value " + (i+1).ToString();
+                }
 
+            }
         }
     }
 }
