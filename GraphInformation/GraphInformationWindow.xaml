@@ -20,23 +20,25 @@
         <TextBlock HorizontalAlignment="Stretch" Text="{Binding GraphFilePath}" TextWrapping="WrapWithOverflow" FontFamily="Arial" Padding="10" FontWeight="Medium" FontSize="12" Background="#f2f3f4" Foreground="#13344e"/>
         <TextBlock HorizontalAlignment="Stretch" Text="File Last Saved" FontFamily="Arial" Padding="10" FontWeight="Bold" FontSize="14" Background="#8d9ca9" Foreground="#f2f3f4"/>
         <TextBlock HorizontalAlignment="Stretch" Text="{Binding GraphLastSaved}" FontFamily="Arial" Padding="10" FontWeight="Medium" FontSize="12" Background="#f2f3f4" Foreground="#13344e"/>
-        <WrapPanel Margin="0">
-            <TextBlock Margin="0,0,0,0" HorizontalAlignment="Stretch" Padding="10" TextAlignment="Center" Text="Total Number of Nodes" FontFamily="Arial" FontWeight="Bold" FontSize="14" Background="#8d9ca9" Foreground="#f2f3f4" Width="242.5"/>
-            <TextBlock Margin="0,0,0,0" HorizontalAlignment="Stretch" Padding="10" TextAlignment="Center" Text="Total Number of Wires" FontFamily="Arial" FontWeight="Bold" FontSize="14" Background="#8d9ca9" Foreground="#f2f3f4" Width="242.5"/>
-        </WrapPanel>
-        <WrapPanel Margin="0">
-            <TextBlock Margin="0,0,0,0" Text="{Binding ActiveNodeCount}" Padding="10" TextAlignment="Center" FontFamily="Arial" FontWeight="Bold" FontSize="20"  Background="#f2f3f4" Foreground="#13344e" Width="242.5" Height="36"/>
-            <TextBlock Margin="0,0,0,0" Text="{Binding ActiveWireCount}" Padding="10" TextAlignment="Center" FontFamily="Arial" FontWeight="Bold" FontSize="20" Background="#f2f3f4" Foreground="#13344e" Width="242.5" Height="36"/>
-        </WrapPanel>
-        <WrapPanel Margin="0">
-            <TextBlock Margin="0,0,0,0" HorizontalAlignment="Stretch" Padding="10" TextAlignment="Center" Text="Error Nodes" FontFamily="Arial" FontWeight="Bold" FontSize="14" Background="#8d9ca9" Foreground="#f2f3f4" Width="242.5"/>
-            <TextBlock Margin="0,0,0,0" HorizontalAlignment="Stretch" Padding="10" TextAlignment="Center" Text="Groups" FontFamily="Arial" FontWeight="Bold" FontSize="14" Background="#8d9ca9" Foreground="#f2f3f4" Width="242.5"/>
-        </WrapPanel>
-        <WrapPanel Margin="0">
-            <ListBox x:Name="ErrorListBox" ItemsSource="{Binding ErrorNodeTypes}" DisplayMemberPath="name" FontFamily="Arial" Padding="10" FontWeight="Bold" FontSize="12" Height="200" SelectionChanged="listBoxErrorNodes_SelectionChanged" Background="#f2f3f4" Foreground="#E59100" Width="242.5" BorderThickness="0" />
-            <ListBox x:Name="GroupListBox" ItemsSource="{Binding GroupTypes}" DisplayMemberPath="name" FontFamily="Arial" Padding="10" FontWeight="Bold" FontSize="12" Height="200" SelectionChanged="listBoxGroups_SelectionChanged" Background="#f2f3f4" Foreground="#13344e" Width="242.5" BorderThickness="0"/>
-        </WrapPanel>
-
-
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Grid.Column="0" Margin="0,0,0,0" Padding="10" TextAlignment="Center" Text="Total Number of Nodes" FontFamily="Arial" FontWeight="Bold" FontSize="14" Background="#8d9ca9" Foreground="#f2f3f4" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="0" Grid.Column="1" Margin="0,0,0,0" Padding="10" TextAlignment="Center" Text="Total Number of Wires" FontFamily="Arial" FontWeight="Bold" FontSize="14" Background="#8d9ca9" Foreground="#f2f3f4" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,0,0,0" Text="{Binding ActiveNodeCount}" Padding="10" TextAlignment="Center" FontFamily="Arial" FontWeight="Bold" FontSize="20"  Background="#f2f3f4" Foreground="#13344e"/>
+            <TextBlock Grid.Row="1" Grid.Column="1" Margin="0,0,0,0" Text="{Binding ActiveWireCount}" Padding="10" TextAlignment="Center" FontFamily="Arial" FontWeight="Bold" FontSize="20" Background="#f2f3f4" Foreground="#13344e"/>
+            <TextBlock Grid.Row="2" Grid.Column="0" Margin="0,0,0,0" Padding="10" TextAlignment="Center" Text="Error Nodes" FontFamily="Arial" FontWeight="Bold" FontSize="14" Background="#8d9ca9" Foreground="#f2f3f4" VerticalAlignment="Center"/>
+            <TextBlock Grid.Row="2" Grid.Column="1" Margin="0,0,0,0" Padding="10" TextAlignment="Center" Text="Groups" FontFamily="Arial" FontWeight="Bold" FontSize="14" Background="#8d9ca9" Foreground="#f2f3f4" VerticalAlignment="Center"/>
+            <ListBox Grid.Row="3" Grid.Column="0" x:Name="ErrorListBox" ItemsSource="{Binding ErrorNodeTypes}" DisplayMemberPath="name" FontFamily="Arial" Padding="10" FontWeight="Bold" FontSize="12" Height="200" SelectionChanged="listBoxErrorNodes_SelectionChanged" Background="#f2f3f4" Foreground="#E59100" BorderThickness="0" />
+            <ListBox Grid.Row="3" Grid.Column="1" x:Name="GroupListBox" ItemsSource="{Binding GroupTypes}" DisplayMemberPath="name" FontFamily="Arial" Padding="10" FontWeight="Bold" FontSize="12" Height="200" SelectionChanged="listBoxGroups_SelectionChanged" Background="#f2f3f4" Foreground="#13344e"  BorderThickness="0"/>
+        </Grid>
     </StackPanel>
 </Window>

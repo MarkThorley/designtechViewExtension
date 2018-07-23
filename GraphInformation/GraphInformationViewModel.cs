@@ -222,7 +222,7 @@ namespace designtechViewExtension
             List<nodeData> output = new List<nodeData>();
             foreach (NodeModel node in readyParams.CurrentWorkspaceModel.Nodes)
             {
-                if (node.State.ToString() == "Warning" && node.Name != "Watch")
+                if (node.State.ToString() == "Warning" && node.Name != "Watch" || node.State.ToString() == )
                 {
                     output.Add(new nodeData()
                     {
