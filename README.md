@@ -1,5 +1,5 @@
 # designtech View Extensions
-(https://github.com/MarkThorley/designtechViewExtension) is the WIP source code for the designtech view extensions for DynamoBIM.
+https://github.com/MarkThorley/designtechViewExtension is the WIP source code for the designtech view extensions for DynamoBIM.
 
 
 
