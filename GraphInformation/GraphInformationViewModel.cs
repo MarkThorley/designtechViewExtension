@@ -226,7 +226,7 @@ namespace designtechViewExtension
                 {
                     output.Add(new nodeData()
                     {
-                        name = node.NickName,
+                        name = node.Name,
                         guid = node.GUID.ToString(),
                         theNode = node,
                         theWSModel = readyParams
