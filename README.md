@@ -4,7 +4,9 @@ https://github.com/MarkThorley/designtechViewExtension is the WIP source code fo
 
 
 ## TESTED:
-Currently tested against Dynamo 1.3
+Currently tested against Dynamo 2.0.1
+
+For use with Dynamo 1.3 use specific branch
 
 
 ## CONTRIBUTION:
