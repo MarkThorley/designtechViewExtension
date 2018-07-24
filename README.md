@@ -22,6 +22,15 @@ Copy src/bin/release/designtech.dll to C:\Program Files\Dynamo\Dynamo Core\1.3
 
 Access the View Extension from the drop down menu designtech in Dynamo
 
+## DYNAMO 2.0 INSTALL INSTRUCTIONS:
+Build Dynamo from Source in Visual Studio from Dynamo_2.0 branch
+
+Copy src/bin/release/designtech_ViewExtensionDefinition.xml to C:\Program Files\Dynamo\Dynamo Core\2\viewExtensions
+
+Copy src/bin/release/designtech.dll to C:\Program Files\Dynamo\Dynamo Core\2
+
+Access the View Extension from the drop down menu designtech in Dynamo
+
 
 ## VISUAL STUDIO POST-BUILD EVENTS:
 copy "$(ProjectDir)bin\Release\*.xml" "C:\Users\markt\Documents\GitHub\Dynamo\bin\AnyCPU\Debug\viewExtensions"
