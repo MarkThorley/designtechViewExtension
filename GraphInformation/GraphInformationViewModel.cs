@@ -12,6 +12,8 @@ using Dynamo.Graph;
 using Dynamo.Wpf.Extensions;
 using Dynamo.Graph.Annotations;
 using Dynamo.Graph.Workspaces;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace designtechViewExtension
 {
@@ -21,12 +23,22 @@ namespace designtechViewExtension
         private DynamoViewModel viewModel;
         private Window dynWindow;
 
-        public class nodeData
+        public class nodeData : INotifyPropertyChanged
         {
             public string name { get; set; }
             public string guid { get; set; }
             public ModelBase theNode { get; set; }
             public ViewLoadedParams theWSModel { get; set; }
+
+            public event PropertyChangedEventHandler PropertyChanged;
+
+            private void NotifyPropertyChanged([CallerMemberName] String propertyName = "")
+            {
+                if (PropertyChanged != null)
+                {
+                    PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+                }
+            }
         }
 
         public class groupData
@@ -286,7 +298,8 @@ namespace designtechViewExtension
             p.CurrentWorkspaceModel.NodeAdded += CurrentWorkspaceModel_NodesChanged;
             p.CurrentWorkspaceModel.NodeRemoved += CurrentWorkspaceModel_NodesChanged;
             p.CurrentWorkspaceChanged += CurrentWorkspaceModel_WorkspaceChanged;
-
+            p.CurrentWorkspaceChanged += ReadyParams_CurrentWorkspaceChanged;
+            AddEventHandlers(p.CurrentWorkspaceModel);
 
         }
 
@@ -319,7 +332,52 @@ namespace designtechViewExtension
             RaisePropertyChanged("ErrorNodeTypes","GroupTypes");
         }
 
+        private void ReadyParams_CurrentWorkspaceChanged(Dynamo.Graph.Workspaces.IWorkspaceModel obj)
+        {
+            RaisePropertyChanged("ErrorNodeTypes", "GroupTypes");
+        }
 
+        private void node_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            if (e.PropertyName == "State")
+            {
+                RaisePropertyChanged("ErrorNodeTypes", "GroupTypes");
+            }
+        }
+
+        private void CurrentWorkspaceModel_NodeAdded(NodeModel node)
+        {
+            node.PropertyChanged += node_PropertyChanged;
+        }
+
+        private void CurrentWorkspaceModel_NodeRemoved(NodeModel node)
+        {
+            node.PropertyChanged -= node_PropertyChanged;
+        }
+
+        private void CurrentWorkspaceModel_NodesCleared()
+        {
+            foreach (var node in readyParams.CurrentWorkspaceModel.Nodes)
+            {
+                node.PropertyChanged -= node_PropertyChanged;
+            }
+            RaisePropertyChanged("ErrorNodeTypes", "GroupTypes");
+        }
+
+
+        #endregion
+
+        #region Handlers
+        private void AddEventHandlers(IWorkspaceModel model)
+        {
+            foreach (var node in model.Nodes)
+            {
+                node.PropertyChanged += node_PropertyChanged;
+            }
+            model.NodeAdded += CurrentWorkspaceModel_NodeAdded;
+            model.NodeRemoved += CurrentWorkspaceModel_NodeRemoved;
+            model.NodesCleared += CurrentWorkspaceModel_NodesCleared;
+        }
         #endregion
 
         #region Dispose Methods
