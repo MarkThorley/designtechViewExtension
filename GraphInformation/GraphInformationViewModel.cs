@@ -280,7 +280,8 @@ namespace designtechViewExtension
                     });
                 }
             }
-            foreach (groupData group in groups.OrderByDescending(x => x.name).ThenBy(x => x.name)) { output.Add(group); }
+            foreach (groupData group in groups.OrderByDescending(x => x.name)) { output.Add(group); }
+            output.Reverse();
             return output;
         }
 
