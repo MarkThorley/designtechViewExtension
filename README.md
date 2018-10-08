@@ -47,6 +47,25 @@ Access the View Extension from the drop down menu designtech in Dynamo
 
 
 
+## CURRENT FEATURES:
+- Node / Connector Count
+  Counts all the nodes and connectors live in the model
+
+- Toggle Freeze
+  Allows the user to freeze and unfreeze selected/multiple nodes
+
+- Group Navigation
+  Navigate round the graph easily by Group names
+  
+- Error Nodes
+  Highlights all the nodes in the graph with an error associated and allows an easy way to navigate to them
+  
+- Favourite Nodes
+  Setup user defined custom nodes that can be placed on the canvas easily
+
+
+
+
 ## VISUAL STUDIO POST-BUILD EVENTS:
 copy "$(ProjectDir)bin\Release\*.xml" "C:\Users\markt\Documents\GitHub\Dynamo\bin\AnyCPU\Debug\viewExtensions"
 
