@@ -4,6 +4,7 @@ https://github.com/MarkThorley/designtechViewExtension is the WIP source code fo
 
 
 
+
 ## TESTED:
 Currently tested against Dynamo 2.0.1
 
@@ -11,8 +12,10 @@ Please Note: Not all new features will not be added to Dynamo 1.3.1 branch
 
 
 
+
 ## CONTRIBUTION:
 Feel free to fork and submit pull requests
+
 
 
 
@@ -29,6 +32,7 @@ Access the View Extension from the drop down menu designtech in Dynamo
 
 
 
+
 ## DYNAMO 2.0 INSTALL INSTRUCTIONS:
 Build Dynamo from Source in Visual Studio from Dynamo_2.0 branch
 
@@ -42,10 +46,12 @@ Access the View Extension from the drop down menu designtech in Dynamo
 
 
 
+
 ## VISUAL STUDIO POST-BUILD EVENTS:
 copy "$(ProjectDir)bin\Release\*.xml" "C:\Users\markt\Documents\GitHub\Dynamo\bin\AnyCPU\Debug\viewExtensions"
 
 copy "$(ProjectDir)bin\Release\*.dll" "C:\Users\markt\Documents\GitHub\Dynamo\bin\AnyCPU\Debug\"
+
 
 
 
