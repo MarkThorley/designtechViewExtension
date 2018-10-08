@@ -43,7 +43,7 @@ namespace designtechViewExtension
             designtechMenuItem.Items.Add(designtechAboutMenuItem);
             #endregion
 
-            #region Node/Connector Counts
+            #region Node/Connector 
             designtechNodeConnectorCountsMenuItem = new MenuItem { Header = "Node/Connector Counts" };
             designtechNodeConnectorCountsMenuItem.Click += (sender, args) =>
             {

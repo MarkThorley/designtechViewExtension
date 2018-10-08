@@ -26,7 +26,10 @@ namespace designtechViewExtension
 
         private void listBoxErrorNodes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (sender == null) return;
             ListBox lb = sender as ListBox;
+            if (lb.SelectedItem == null) return;
+
             var selection = lb.SelectedItem;
             ModelBase modelBase = selection.GetType().GetProperty("theNode").GetValue(selection) as ModelBase;
             ViewLoadedParams viewLoadedParams = selection.GetType().GetProperty("theWSModel").GetValue(selection) as ViewLoadedParams;

@@ -25,11 +25,14 @@ namespace designtechViewExtension
 
         private void listBoxGroups_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            if (sender == null) return;
             ListBox lb = sender as ListBox;
+            if (lb.SelectedItem == null) return;
+
             var selection = lb.SelectedItem;
-            ModelBase modelBase = selection.GetType().GetProperty("theGroup").GetValue(selection) as ModelBase;
-            ViewLoadedParams viewLoadedParams = selection.GetType().GetProperty("theWSModel").GetValue(selection) as ViewLoadedParams;
-            string guid = selection.GetType().GetProperty("guid").GetValue(selection) as string;
+            ModelBase modelBase = selection.GetType()?.GetProperty("theGroup")?.GetValue(selection) as ModelBase;
+            ViewLoadedParams viewLoadedParams = selection.GetType()?.GetProperty("theWSModel")?.GetValue(selection) as ViewLoadedParams;
+            string guid = selection.GetType()?.GetProperty("guid")?.GetValue(selection) as string;
 
             foreach (NodeModel node in viewLoadedParams.CurrentWorkspaceModel.Nodes)
             {
@@ -55,6 +58,7 @@ namespace designtechViewExtension
             VM.AddToSelectionCommand.Execute(modelBase);
             VM.FitViewCommand.Execute(null);
         }
+
 
         private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
         {
