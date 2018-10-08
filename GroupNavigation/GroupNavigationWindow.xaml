@@ -1,0 +1,27 @@
+﻿<Window x:Class="designtechViewExtension.GroupNavigationWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:designtechViewExtension"
+             mc:Ignorable="d"
+            Width="225"
+         ResizeMode="NoResize" Title="Group Navigation" SizeToContent="Height" Icon="resources\designtech-icon-32px.ico">
+    <StackPanel Name="MainGrid" 
+          HorizontalAlignment="Stretch"
+          VerticalAlignment="Stretch">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="2*" />
+            </Grid.RowDefinitions>
+            <ListBox Grid.Row="1" Grid.Column="1" x:Name="GroupListBox" ItemsSource="{Binding GroupTypes}" DisplayMemberPath="name" FontFamily="Arial" Padding="10" FontWeight="Bold" FontSize="12" Height="200" SelectionChanged="listBoxGroups_SelectionChanged" Background="White" Foreground="#13344e"  BorderThickness="0"/>
+        </Grid>
+        <TextBox x:Name="textBox" Margin="0,10,10,0" Height="12" TextWrapping="Wrap" Text="powered by" HorizontalContentAlignment="Right" FontFamily="Lintel 4" BorderThickness="0" FontSize="10"/>
+        <TextBlock HorizontalAlignment="Right" FontFamily="Arial" FontWeight="Bold" FontSize="14" Background="White" Foreground="White" ><Hyperlink NavigateUri="http://www.designtech.io" RequestNavigate="Hyperlink_RequestNavigate" TextDecorations="None"><InlineUIContainer>
+                        <Image x:Name="image"     Height="31" Source="resources\designtech-logo.png" Width="120" HorizontalAlignment="Right" Margin="0,0,10,10"/>
+            </InlineUIContainer></Hyperlink></TextBlock>
+    </StackPanel>
+</Window>
