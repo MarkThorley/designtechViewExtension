@@ -142,10 +142,18 @@
     <Compile Include="FavouriteNodes\FavouriteNodesWindow.xaml.cs">
       <DependentUpon>FavouriteNodesWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GraphInformation\GraphInformationWindow.xaml.cs">
-      <DependentUpon>GraphInformationWindow.xaml</DependentUpon>
+    <Compile Include="ErrorNodes\ErrorNodesViewModel.cs" />
+    <Compile Include="ErrorNodes\ErrorNodesWindow.xaml.cs">
+      <DependentUpon>ErrorNodesWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="GraphInformation\GraphInformationViewModel.cs" />
+    <Compile Include="Counts\CountsViewModel.cs" />
+    <Compile Include="Counts\CountsWindow.xaml.cs">
+      <DependentUpon>CountsWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Group Navigation\GroupNavigationWindow.xaml.cs">
+      <DependentUpon>GroupNavigationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Group Navigation\GroupNavigationViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -160,14 +168,26 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="GraphInformation\GraphInformationWindow.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="ErrorNodes\ErrorNodesWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Counts\CountsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Group Navigation\GroupNavigationWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="GraphInformation\resources\designtech-logo.png" />
-    <Resource Include="GraphInformation\resources\designtech-icon-32px.ico" />
+    <Resource Include="Counts\resources\designtech-logo.png" />
+    <Resource Include="Counts\resources\designtech-icon-32px.ico" />
+    <Resource Include="ErrorNodes\resources\designtech-logo.png" />
+    <Resource Include="ErrorNodes\resources\designtech-icon-32px.ico" />
+    <Resource Include="Group Navigation\resources\designtech-logo.png" />
+    <Resource Include="Group Navigation\resources\designtech-icon-32px.ico" />
     <Resource Include="About\resources\designtech-icon-32px.ico" />
     <Resource Include="About\resources\designtech-logo.png" />
     <Content Include="designtechViewExtension_ViewExtensionDefinition.xml">
@@ -180,8 +200,9 @@
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>copy "$(ProjectDir)bin\Release\*.xml" "C:\Users\markt\Documents\GitHub\Dynamo\bin\AnyCPU\Debug\viewExtensions
+copy "$(ProjectDir)bin\Release\*.dll" "C:\Users\markt\Documents\GitHub\Dynamo\bin\AnyCPU\Debug\"
+</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
