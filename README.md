@@ -8,8 +8,6 @@ https://github.com/MarkThorley/designtechViewExtension is the WIP source code fo
 ## TESTED:
 Currently tested against Dynamo 2.0.1
 
-Please Note: Not all new features will not be added to Dynamo 1.3.1 branch
-
 
 
 
@@ -20,6 +18,8 @@ Feel free to fork and submit pull requests
 
 
 ## DYNAMO 1.3 INSTALL INSTRUCTIONS:
+Please Note: The Dynamo 1.3 branch is no longer being maintained
+
 - Build Dynamo from Source in Visual Studio from Dynamo_1.3 branch
 
 - Build the designtech View Extension from Source in Visual Studio from 1.3 branch
