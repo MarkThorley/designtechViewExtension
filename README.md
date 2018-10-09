@@ -17,6 +17,14 @@ Feel free to fork and submit pull requests
 
 
 
+## DYNAMO 2.0 PACKAGE MANAGER INSTALL INSTRUCTIONS:
+- Open Dynamo and the Package Manager
+
+- Search for designtechViewExtension and install
+
+
+
+
 ## DYNAMO 1.3 INSTALL INSTRUCTIONS:
 Please Note: The Dynamo 1.3 branch is no longer being maintained
 
