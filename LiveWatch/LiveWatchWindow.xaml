@@ -1,0 +1,27 @@
+﻿<Window x:Class="designtechViewExtension.LiveWatchWindow"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:designtechViewExtension"
+             mc:Ignorable="d" d:DesignWidth="300"
+            ResizeMode="NoResize"
+            Width="250" Title="Live Watch" SizeToContent="Height" BorderThickness="0" Background="White" Icon="resources\designtech-icon-32px.ico">
+    <StackPanel Name="MainGrid" 
+          HorizontalAlignment="Stretch"
+          VerticalAlignment="Stretch">
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="300" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="1" Grid.Column="0" Margin="0,0,0,0" Text="{Binding LiveWatchString}" Padding="10" TextAlignment="Center" FontFamily="Arial" FontWeight="Bold" FontSize="10"  Background="White" Foreground="#13344e"/>
+        </Grid>
+        <TextBox x:Name="textBox" Margin="0,0,10,0" Height="12" TextWrapping="Wrap" Text="powered by" HorizontalContentAlignment="Right" FontFamily="Lintel 4" BorderThickness="0" FontSize="10"/>
+        <TextBlock HorizontalAlignment="Right" FontFamily="Arial" FontWeight="Bold" FontSize="14" Background="White" Foreground="White" ><Hyperlink NavigateUri="http://www.designtech.io" RequestNavigate="Hyperlink_RequestNavigate" TextDecorations="None"><InlineUIContainer>
+                        <Image x:Name="image"     Height="31" Source="resources\designtech-logo.png" Width="120" HorizontalAlignment="Right" Margin="0,0,10,10"/>
+            </InlineUIContainer></Hyperlink></TextBlock>
+    </StackPanel>
+</Window>

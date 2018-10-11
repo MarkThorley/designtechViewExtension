@@ -11,6 +11,7 @@ namespace designtechViewExtension
         private MenuItem designtechAboutMenuItem;
         private MenuItem designtechNodeConnectorCountsMenuItem;
         private MenuItem designtechToggleFreezeMenuItem;
+        private MenuItem designtechLiveWatchMenuItem;
         private MenuItem designtechGroupNavigationMenuItem;
         private MenuItem designtechErrorNodesMenuItem;
         private MenuItem designtechFavouriteNodesMenuItem;
@@ -82,6 +83,26 @@ namespace designtechViewExtension
                 window.Show();
             };
             designtechMenuItem.Items.Add(designtechToggleFreezeMenuItem);
+            #endregion
+
+            #region Live Watch
+            designtechLiveWatchMenuItem = new MenuItem { Header = "Live Watch" };
+            designtechLiveWatchMenuItem.Click += (sender, args) =>
+            {
+                var viewModel = new LiveWatchViewModel(p);
+                var window = new LiveWatchWindow
+                {
+                    // Set the data context for the main grid in the window.
+                    MainGrid = { DataContext = viewModel },
+
+                    // Set the owner of the window to the Dynamo window.
+                    Owner = p.DynamoWindow
+                };
+                window.Left = window.Owner.Left + 400;
+                window.Top = window.Owner.Top + 200;
+                window.Show();
+            };
+            designtechMenuItem.Items.Add(designtechLiveWatchMenuItem);
             #endregion
 
             #region Group Navigation

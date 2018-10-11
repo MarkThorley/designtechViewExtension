@@ -137,6 +137,10 @@
     <Compile Include="About\AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="LiveWatch\LiveWatchViewModel.cs" />
+    <Compile Include="LiveWatch\LiveWatchWindow.xaml.cs">
+      <DependentUpon>LiveWatchWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ToggleFreeze\ToggleFreezeViewModel.cs" />
     <Compile Include="ToggleFreeze\ToggleFreezeWindow.xaml.cs">
       <DependentUpon>ToggleFreezeWindow.xaml</DependentUpon>
@@ -167,6 +171,10 @@
     <Page Include="About\AboutWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LiveWatch\LiveWatchWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="ToggleFreeze\ToggleFreezeWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -200,6 +208,8 @@
     <Resource Include="About\resources\designtech-logo.png" />
     <Resource Include="ToggleFreeze\resources\designtech-icon-32px.ico" />
     <Resource Include="ToggleFreeze\resources\designtech-logo.png" />
+    <Resource Include="LiveWatch\resources\designtech-icon-32px.ico" />
+    <Resource Include="LiveWatch\resources\designtech-logo.png" />
     <Content Include="designtechViewExtension_ViewExtensionDefinition.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <SubType>Designer</SubType>
