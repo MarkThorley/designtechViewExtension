@@ -63,7 +63,8 @@ namespace designtechViewExtension
             List<nodeData> output = new List<nodeData>();
             foreach (NodeModel node in readyParams.CurrentWorkspaceModel.Nodes)
             {
-                if (node.State.ToString() == "Warning" && node.Name != "Watch")
+                if (node.State.ToString() == "Warning" || node.State.ToString() == "Dead" || node.State.ToString() == "Error" || node.State.ToString() == "PersistentWarning" || node.State.ToString() == "AstBuildBroken" && node.Name != "Watch")
+                //if (node.State.ToString() == "Warning" && node.Name != "Watch")
                 {
                     output.Add(new nodeData()
                     {
