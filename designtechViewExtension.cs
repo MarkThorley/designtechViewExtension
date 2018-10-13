@@ -10,6 +10,7 @@ namespace designtechViewExtension
         private MenuItem designtechMenuItem;
         private MenuItem designtechAboutMenuItem;
         private MenuItem designtechNodeConnectorCountsMenuItem;
+        private MenuItem designtechMetadataMenuItem;
         private MenuItem designtechToggleFreezeMenuItem;
         private MenuItem designtechGroupNavigationMenuItem;
         private MenuItem designtechErrorNodesMenuItem;
@@ -42,6 +43,22 @@ namespace designtechViewExtension
                 window.Show();
             };
             designtechMenuItem.Items.Add(designtechAboutMenuItem);
+            #endregion
+
+            #region Metadata
+            designtechMetadataMenuItem = new MenuItem { Header = "Graph Metadata" };
+            designtechMetadataMenuItem.Click += (sender, args) =>
+            {
+                //var viewModel = new GraphInformationViewModel(p);
+                var window = new GraphMetadataWindow
+                {
+                    Owner = p.DynamoWindow
+                };
+                window.Left = window.Owner.Left + 400;
+                window.Top = window.Owner.Top + 200;
+                window.Show();
+            };
+            designtechMenuItem.Items.Add(designtechMetadataMenuItem);
             #endregion
 
             #region Node/Connector 

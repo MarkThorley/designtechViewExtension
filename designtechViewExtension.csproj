@@ -137,6 +137,10 @@
     <Compile Include="About\AboutWindow.xaml.cs">
       <DependentUpon>AboutWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GraphMetadata\GraphMetatdataWindow.xaml.cs">
+      <DependentUpon>GraphMetatdataWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GraphMetadata\GraphMetadataViewModel.cs" />
     <Compile Include="ToggleFreeze\ToggleFreezeViewModel.cs" />
     <Compile Include="ToggleFreeze\ToggleFreezeWindow.xaml.cs">
       <DependentUpon>ToggleFreezeWindow.xaml</DependentUpon>
@@ -168,6 +172,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="GraphMetadata\GraphMetatdataWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="ToggleFreeze\ToggleFreezeWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -190,6 +198,8 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="GraphMetadata\resources\designtech-logo.png" />
+    <Resource Include="GraphMetadata\resources\designtech-icon-32px.ico" />
     <Resource Include="Counts\resources\designtech-logo.png" />
     <Resource Include="Counts\resources\designtech-icon-32px.ico" />
     <Resource Include="ErrorNodes\resources\designtech-logo.png" />
