@@ -49,14 +49,22 @@ namespace designtechViewExtension
             designtechMetadataMenuItem = new MenuItem { Header = "Graph Metadata" };
             designtechMetadataMenuItem.Click += (sender, args) =>
             {
-                //var viewModel = new GraphInformationViewModel(p);
+                var viewModel = new GraphMetadataViewModel(p);
                 var window = new GraphMetadataWindow
                 {
+                    // Set the data context for the main grid in the window.
+                    DataContext = viewModel,
+
+                    // Set the owner of the window to the Dynamo window.
                     Owner = p.DynamoWindow
                 };
+
                 window.Left = window.Owner.Left + 400;
                 window.Top = window.Owner.Top + 200;
+
+                // Show a modeless window.
                 window.Show();
+                viewModel.SetDescription();
             };
             designtechMenuItem.Items.Add(designtechMetadataMenuItem);
             #endregion

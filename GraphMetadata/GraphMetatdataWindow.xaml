@@ -14,9 +14,13 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
         </Grid.RowDefinitions>
-        <TextBlock x:Name="textBlock" Grid.Column="0" Margin="0,10,0,0" TextWrapping="Wrap" Text="Office" Height="21" TextAlignment="Left" Width="100" VerticalAlignment="Top" HorizontalAlignment="Center" LineStackingStrategy="BlockLineHeight"/>
-        <TextBox x:Name="OfficeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Margin="10,10,5,10" TextWrapping="Wrap" Text="{Binding Office}" VerticalAlignment="Top" Width="320"/>
+        <TextBlock x:Name="officeBlock" Grid.Column="0" Margin="0,10,0,0" TextWrapping="Wrap" Text="Office" Height="21" TextAlignment="Left" Width="100" VerticalAlignment="Top" HorizontalAlignment="Center" LineStackingStrategy="BlockLineHeight"/>
+        <TextBox x:Name="OfficeTextBox" Grid.Column="1" HorizontalAlignment="Left" Height="23" Text="{Binding Office, Mode = TwoWay}" Margin="10,10,5,10" TextWrapping="Wrap" VerticalAlignment="Top" Width="320"/>
+        <TextBlock x:Name="authorBlock" Grid.Row="1" Margin="0,10,0,0" TextWrapping="Wrap" Text="Author" Height="21" TextAlignment="Left" Width="100" VerticalAlignment="Top" HorizontalAlignment="Center" LineStackingStrategy="BlockLineHeight"/>
+        <TextBox x:Name="AuthorTextBox" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Height="23" Text="{Binding Author, Mode = TwoWay}" Margin="10,10,5,10" TextWrapping="Wrap" VerticalAlignment="Top" Width="320"/>
+        <Button Content="Button" Grid.Column="1" HorizontalAlignment="Left" Height="60" Margin="148,91,0,-110.2" VerticalAlignment="Top" Width="98" Click="Button_Click"/>
 
     </Grid>
 </Window>

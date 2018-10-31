@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Diagnostics;
+using Dynamo.Extensions;
+using Dynamo.Applications;
 
 namespace designtechViewExtension
 {
@@ -21,11 +23,18 @@ namespace designtechViewExtension
     /// </summary>
     public partial class GraphMetadataWindow : Window
     {
+
         public GraphMetadataWindow()
         {
             InitializeComponent();
+
+
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            (this.DataContext as GraphMetadataViewModel).SetDescription();
+        }
     }
 
 
