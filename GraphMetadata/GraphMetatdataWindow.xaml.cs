@@ -33,7 +33,7 @@ namespace designtechViewExtension
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            (this.DataContext as GraphMetadataViewModel).SetDescription();
+            (this.DataContext as GraphMetadataViewModel).SetScriptDescription();
         }
     }
 

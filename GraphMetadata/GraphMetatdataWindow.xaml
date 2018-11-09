@@ -36,7 +36,7 @@
         <TextBlock x:Name="ScriptVersionBlock" Grid.Row="5" Margin="0,0,0,0" TextWrapping="Wrap" Text="Script Version:" Height="20" TextAlignment="Left" VerticalAlignment="Center"  HorizontalAlignment="Right" LineStackingStrategy="BlockLineHeight"/>
         <TextBox x:Name="ScriptVersionTextBox" Grid.Row="5" Grid.Column="1" HorizontalAlignment="Left" Height="20" Margin="5,5,5,5" Text="{Binding ScriptVersion, Mode = TwoWay}" TextWrapping="Wrap" VerticalAlignment="Top" Width="230"/>
         <TextBlock x:Name="DynVersionBlock" Grid.Row="6" Margin="0,0,0,0" TextWrapping="Wrap" Text="Dynamo Version:" Height="20" TextAlignment="Left" VerticalAlignment="Center"  HorizontalAlignment="Right" LineStackingStrategy="BlockLineHeight"/>
-        <TextBox x:Name="DynVersionTextBox" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left" Height="20" Margin="5,5,5,5" Text="{Binding DynVerion, Mode = TwoWay}" TextWrapping="Wrap" VerticalAlignment="Top" Width="230"/>
+        <TextBox x:Name="DynVersionTextBox" Grid.Row="6" Grid.Column="1" HorizontalAlignment="Left" Height="20" Margin="5,5,5,5" Text="{Binding DynamoVersion, Mode = TwoWay}" TextWrapping="Wrap" VerticalAlignment="Top" Width="230"/>
         <TextBlock x:Name="LastTested" Grid.Row="7" Margin="0,0,0,0" TextWrapping="Wrap" Text="Last Tested On:" Height="20" TextAlignment="Left" VerticalAlignment="Center"  HorizontalAlignment="Right" LineStackingStrategy="BlockLineHeight"/>
         <TextBox x:Name="LastTestedTextBox" Grid.Row="7" Grid.Column="1" HorizontalAlignment="Left" Height="20" Margin="5,5,5,5" Text="{Binding LastTested, Mode = TwoWay}" TextWrapping="Wrap" VerticalAlignment="Top" Width="230"/>
 

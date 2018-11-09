@@ -64,7 +64,7 @@ namespace designtechViewExtension
 
                 // Show a modeless window.
                 window.Show();
-                viewModel.SetDescription();
+                viewModel.GetScriptDescription();
             };
             designtechMenuItem.Items.Add(designtechMetadataMenuItem);
             #endregion

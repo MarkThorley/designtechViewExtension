@@ -59,17 +59,95 @@ namespace designtechViewExtension
                 this.RaisePropertyChanged("Author");
             }
         }
+
+        public string Description
+        {
+            get
+            {
+                return dict["Description"];
+            }
+            set
+            {
+                dict["Description"] = value;
+                this.RaisePropertyChanged("Description");
+            }
+        }
+
+        public string Category
+        {
+            get
+            {
+                return dict["Category"];
+            }
+            set
+            {
+                dict["Category"] = value;
+                this.RaisePropertyChanged("Category");
+            }
+        }
+
+        public string Tags
+        {
+            get
+            {
+                return dict["Tags"];
+            }
+            set
+            {
+                dict["Tags"] = value;
+                this.RaisePropertyChanged("Tags");
+            }
+        }
+
+        public string ScriptVersion
+        {
+            get
+            {
+                return dict["ScriptVersion"];
+            }
+            set
+            {
+                dict["ScriptVersion"] = value;
+                this.RaisePropertyChanged("ScriptVersion");
+            }
+        }
+
+        public string DynamoVersion
+        {
+            get
+            {
+                return dict["DynamoVersion"];
+            }
+            set
+            {
+                dict["DynamoVersion"] = value;
+                this.RaisePropertyChanged("DynamoVersion");
+            }
+        }
+
+        public string LastTested
+        {
+            get
+            {
+                return dict["LastTested"];
+            }
+            set
+            {
+                dict["LastTested"] = value;
+                this.RaisePropertyChanged("LastTested");
+            }
+        }
         #endregion
 
 
         #region Functions
 
-        public string GetDescription()
+        public string GetScriptDescription()
         {
             return readyParams.CurrentWorkspaceModel.Description;
         }
 
-        public void SetDescription()
+        public void SetScriptDescription()
         {
             string desc = CreateStringFromDictionary(dict);
 
