@@ -160,7 +160,7 @@ namespace designtechViewExtension
         public Dictionary<string, string> CreateDictionaryFromString(string str)
         {
             dict = new Dictionary<string, string>();
-            char[] c1 = ",".ToCharArray();
+            char[] c1 = "|".ToCharArray();
             string[] firstSplit = str.Split(c1);
 
             foreach (string s in firstSplit)
@@ -175,7 +175,7 @@ namespace designtechViewExtension
 
         public string CreateStringFromDictionary(Dictionary<string, string> dict)
         {
-            return string.Join(",", dict.Select(x => x.Key + ":" + x.Value).ToArray());
+            return string.Join("|", dict.Select(x => x.Key + ":" + x.Value).ToArray());
         }
 
         #endregion
