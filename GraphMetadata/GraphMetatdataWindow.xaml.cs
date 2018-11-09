@@ -27,13 +27,17 @@ namespace designtechViewExtension
         public GraphMetadataWindow()
         {
             InitializeComponent();
-
-
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_ClickOK(object sender, RoutedEventArgs e)
         {
             (this.DataContext as GraphMetadataViewModel).SetScriptDescription();
+            this.Close();
+        }
+
+        private void Button_ClickCancel(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 
