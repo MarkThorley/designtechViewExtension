@@ -160,16 +160,28 @@ namespace designtechViewExtension
         public Dictionary<string, string> CreateDictionaryFromString(string str)
         {
             dict = new Dictionary<string, string>();
-            char[] c1 = "|".ToCharArray();
-            string[] firstSplit = str.Split(c1);
-
-            foreach (string s in firstSplit)
+            if (str == null)
             {
-                char[] c2 = ":".ToCharArray();
-                string[] dictItem = s.Split(c2);
-                dict.Add(dictItem[0], dictItem[1]);
+                dict.Add("Office", "");
+                dict.Add("Author", "");
+                dict.Add("Description", "");
+                dict.Add("Category", "");
+                dict.Add("Tags", "");
+                dict.Add("ScriptVersion", "");
+                dict.Add("DynamoVersion", "");
+                dict.Add("LastTested", "");
             }
-
+            else
+            {
+                char c1 = '|';
+                string[] firstSplit = str.Split(c1);
+                foreach (string s in firstSplit)
+                {
+                    char c2 = ':';
+                    string[] dictItem = s.Split(c2);
+                    dict.Add(dictItem[0], dictItem[1]);
+                }
+            }
             return dict;
         }
 
